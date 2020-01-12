@@ -18,7 +18,21 @@ namespace McsArogya
 
         private void button1_Click(object sender, EventArgs e)
         {
+            arogyaReg ar = new arogyaReg();
+            this.Hide();
+            ar.Show();
+        }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult dr =  MessageBox.Show("You are about to logout", "MCS-Arogya", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                this.Hide();
+                login l = new login();
+                l.Show();
+                MessageBox.Show("Logged Out Successfully", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
