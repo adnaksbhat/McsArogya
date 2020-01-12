@@ -55,6 +55,7 @@
     <Compile Include="arogyaReg.Designer.cs">
       <DependentUpon>arogyaReg.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbAccess.cs" />
     <Compile Include="home.cs">
       <SubType>Form</SubType>
     </Compile>
