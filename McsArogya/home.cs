@@ -34,5 +34,12 @@ namespace McsArogya
                 MessageBox.Show("Logged Out Successfully", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            arogyaClaim ac = new arogyaClaim();
+            this.Hide();
+            ac.Show();
+        }
     }
 }

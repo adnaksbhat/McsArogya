@@ -103,6 +103,7 @@ namespace McsArogya
                 if (status > 0)
                 {
                     MessageBox.Show("Record Added", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    backToInitial();
                 }
                 else
                 {
@@ -138,6 +139,19 @@ namespace McsArogya
             {
                 e.Handled = true;
             }
+        }
+
+        private void backToInitial()
+        {
+            aname.Text = "";
+            anum.Text = "";
+            contact.Text = "";
+            address.Text = "";
+            aadhar.Text = "";
+            occupation.Text = "";
+            apl.Checked = true;
+            yes.Checked = true;
+            bloodGroup.SelectedIndex = 0;
         }
     }
 }
