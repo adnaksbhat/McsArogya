@@ -6,13 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace McsArogya
 {
+    
     public partial class login : Form
     {
+        public static int tcount = 5;
         DbAccess db = new DbAccess();
         public login()
         {
@@ -57,6 +58,11 @@ namespace McsArogya
             {
                 SendKeys.Send("{TAB}");
             }
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

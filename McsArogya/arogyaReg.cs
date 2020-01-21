@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace McsArogya
@@ -26,6 +25,11 @@ namespace McsArogya
         private void arogyaReg_Load(object sender, EventArgs e)
         {
             bloodGroup.SelectedIndex = 0;
+            if (login.tcount < 0)
+            {
+                MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -37,8 +41,15 @@ namespace McsArogya
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (login.tcount < 0)
+            {
+                MessageBox.Show("Software under test: Max Record Limit Reached", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
+            }
+            login.tcount--;
             string name, add, rc_type, bg, occ,mc_status;
             long num = -1, con = -1, aadh = -1;
+            int ag = -1;
 
             name = aname.Text;
             add = address.Text;
@@ -62,7 +73,7 @@ namespace McsArogya
             {
                 mc_status = no.Text;
             }
-            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") )
+            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") )
             {
                 MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -71,27 +82,29 @@ namespace McsArogya
                 num = long.Parse(anum.Text);
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
+                ag = int.Parse(age.Text);
                 if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals(""))
                 {
                     MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    addToDb(name, add, rc_type, bg, occ, mc_status, num, con, aadh);
+                    addToDb(name, add, rc_type, bg, occ, mc_status, num, con,ag, aadh);
                 }
             }     
         }
 
-        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, long num, long con, long aadh)
+        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, long num, long con,int ag, long aadh)
         {
             int status = -1;
             DbAccess db = new DbAccess();
-            SqlCommand com = new SqlCommand("INSERT INTO members VALUES (@num,@name,@add,@con,@aadh,@rc_type,@mc_status,@bg,@occ);");
+            SqlCommand com = new SqlCommand("INSERT INTO members VALUES (@num,@name,@add,@con,@age,@aadh,@rc_type,@mc_status,@bg,@occ);");
             com.Parameters.AddWithValue("@num", num);
             com.Parameters.AddWithValue("@name", name);
             com.Parameters.AddWithValue("@add", add);
             com.Parameters.AddWithValue("@rc_type", rc_type);
             com.Parameters.AddWithValue("@con", con);
+            com.Parameters.AddWithValue("@age", ag);
             com.Parameters.AddWithValue("@aadh", aadh);
             com.Parameters.AddWithValue("@mc_status", mc_status);
             com.Parameters.AddWithValue("@bg", bg);
@@ -112,6 +125,7 @@ namespace McsArogya
             }
             catch(SqlException e)
             {
+                string s = e.ToString();
                 MessageBox.Show("SQL Exception Occured\nPossible Reasons\n1. Entry already exists", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

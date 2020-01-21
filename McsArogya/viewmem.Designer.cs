@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewmem));
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.sbn = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.sbi = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +48,7 @@
             this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.Size = new System.Drawing.Size(813, 654);
             this.dataGrid.TabIndex = 0;
+            this.dataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellDoubleClick);
             // 
             // button2
             // 
@@ -94,17 +97,29 @@
             this.sbi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sbi_KeyPress);
             this.sbi.Leave += new System.EventHandler(this.sbi_Leave);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(13, 724);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(812, 43);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Export to Excel";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // viewmem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 726);
+            this.ClientSize = new System.Drawing.Size(839, 779);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.sbi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.sbn);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "viewmem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "viewmem";
@@ -122,5 +137,6 @@
         private System.Windows.Forms.TextBox sbn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox sbi;
+        private System.Windows.Forms.Button button3;
     }
 }

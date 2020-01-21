@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(arogyaClaim));
             this.aname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.TextBox();
@@ -253,10 +254,12 @@
             this.Controls.Add(this.aname);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "arogyaClaim";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "arogyaClaim";
+            this.Load += new System.EventHandler(this.arogyaClaim_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

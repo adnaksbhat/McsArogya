@@ -48,5 +48,21 @@ namespace McsArogya
             viewmem vm = new viewmem();
             vm.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            viewclaim vc = new viewclaim();
+            vc.Show();
+        }
+
+        private void home_Load(object sender, EventArgs e)
+        {
+            if ( login.tcount < 0 )
+            {
+                MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
+            }
+        }
     }
 }

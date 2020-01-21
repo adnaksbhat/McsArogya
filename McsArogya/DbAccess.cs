@@ -11,10 +11,10 @@ namespace McsArogya
     {
             private static SqlConnection connection = new SqlConnection();
             private static SqlCommand command = new SqlCommand();
-            private static SqlDataReader DbReader;
+            //private static SqlDataReader DbReader;
             private static SqlDataAdapter adapter = new SqlDataAdapter();
-            public SqlTransaction DbTran;
-
+        //public SqlTransaction DbTran;
+            
             private static string strConnString = "Data Source=(local);Initial Catalog=arogya;Integrated Security=True";
 
 

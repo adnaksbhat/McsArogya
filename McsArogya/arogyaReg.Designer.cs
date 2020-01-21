@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(arogyaReg));
             this.label1 = new System.Windows.Forms.Label();
             this.aname = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.anum = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.address = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contact = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.aadhar = new System.Windows.Forms.TextBox();
@@ -55,6 +53,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.no = new System.Windows.Forms.RadioButton();
             this.yes = new System.Windows.Forms.RadioButton();
+            this.age = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -78,16 +78,11 @@
             this.aname.Size = new System.Drawing.Size(253, 22);
             this.aname.TabIndex = 1;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // anum
             // 
             this.anum.Location = new System.Drawing.Point(203, 86);
             this.anum.Margin = new System.Windows.Forms.Padding(4);
+            this.anum.MaxLength = 10;
             this.anum.Name = "anum";
             this.anum.Size = new System.Drawing.Size(253, 22);
             this.anum.TabIndex = 4;
@@ -108,7 +103,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 151);
+            this.label3.Location = new System.Drawing.Point(17, 178);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 22);
@@ -117,18 +112,12 @@
             // 
             // address
             // 
-            this.address.Location = new System.Drawing.Point(203, 150);
+            this.address.Location = new System.Drawing.Point(203, 177);
             this.address.Margin = new System.Windows.Forms.Padding(4);
             this.address.Multiline = true;
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(253, 88);
             this.address.TabIndex = 6;
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(61, 4);
             // 
             // contact
             // 
@@ -153,7 +142,7 @@
             // 
             // aadhar
             // 
-            this.aadhar.Location = new System.Drawing.Point(203, 246);
+            this.aadhar.Location = new System.Drawing.Point(203, 273);
             this.aadhar.Margin = new System.Windows.Forms.Padding(4);
             this.aadhar.MaxLength = 16;
             this.aadhar.Name = "aadhar";
@@ -165,7 +154,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 247);
+            this.label5.Location = new System.Drawing.Point(17, 274);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 22);
@@ -176,7 +165,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 285);
+            this.label6.Location = new System.Drawing.Point(17, 312);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 22);
@@ -187,7 +176,7 @@
             // 
             this.groupBox1.Controls.Add(this.bpl);
             this.groupBox1.Controls.Add(this.apl);
-            this.groupBox1.Location = new System.Drawing.Point(203, 278);
+            this.groupBox1.Location = new System.Drawing.Point(203, 305);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -223,7 +212,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(19, 327);
+            this.label7.Location = new System.Drawing.Point(19, 354);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(165, 22);
@@ -243,7 +232,7 @@
             "O-",
             "AB+",
             "AB-"});
-            this.bloodGroup.Location = new System.Drawing.Point(203, 366);
+            this.bloodGroup.Location = new System.Drawing.Point(203, 393);
             this.bloodGroup.Margin = new System.Windows.Forms.Padding(4);
             this.bloodGroup.Name = "bloodGroup";
             this.bloodGroup.Size = new System.Drawing.Size(143, 24);
@@ -253,7 +242,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 368);
+            this.label8.Location = new System.Drawing.Point(17, 395);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(114, 22);
@@ -262,7 +251,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(203, 459);
+            this.button1.Location = new System.Drawing.Point(203, 486);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(255, 28);
@@ -284,7 +273,7 @@
             // 
             // occupation
             // 
-            this.occupation.Location = new System.Drawing.Point(203, 399);
+            this.occupation.Location = new System.Drawing.Point(203, 426);
             this.occupation.Margin = new System.Windows.Forms.Padding(4);
             this.occupation.Name = "occupation";
             this.occupation.Size = new System.Drawing.Size(253, 22);
@@ -294,7 +283,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 400);
+            this.label9.Location = new System.Drawing.Point(17, 427);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(100, 22);
@@ -305,7 +294,7 @@
             // 
             this.groupBox2.Controls.Add(this.no);
             this.groupBox2.Controls.Add(this.yes);
-            this.groupBox2.Location = new System.Drawing.Point(203, 322);
+            this.groupBox2.Location = new System.Drawing.Point(203, 349);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -337,12 +326,34 @@
             this.yes.Text = "yes";
             this.yes.UseVisualStyleBackColor = true;
             // 
+            // age
+            // 
+            this.age.Location = new System.Drawing.Point(203, 147);
+            this.age.Margin = new System.Windows.Forms.Padding(4);
+            this.age.MaxLength = 3;
+            this.age.Name = "age";
+            this.age.Size = new System.Drawing.Size(253, 22);
+            this.age.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(21, 147);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(42, 22);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Age";
+            // 
             // arogyaReg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(485, 530);
+            this.Controls.Add(this.age);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.occupation);
             this.Controls.Add(this.label9);
@@ -364,6 +375,7 @@
             this.Controls.Add(this.aname);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "arogyaReg";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -382,12 +394,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox aname;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.TextBox anum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox address;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.TextBox contact;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox aadhar;
@@ -406,5 +416,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton no;
         private System.Windows.Forms.RadioButton yes;
+        private System.Windows.Forms.TextBox age;
+        private System.Windows.Forms.Label label10;
     }
 }

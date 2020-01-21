@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace McsArogya
@@ -27,6 +26,12 @@ namespace McsArogya
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (login.tcount < 0)
+            {
+                MessageBox.Show("Software under test: Max Record Limit Reached", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
+            }
+            login.tcount--;
             string s_name, s_add, s_dis, s_hosp;
             int s_age = -1;
             long s_anum = -1, s_acard = -1, s_contact = -1;
@@ -73,17 +78,24 @@ namespace McsArogya
             com.Parameters.AddWithValue("@s_contact", s_contact);
             com.Parameters.AddWithValue("@s_dis", s_dis);
             com.Parameters.AddWithValue("@s_hosp", s_hosp);
-
-            int res = db.executeQuery(com);
-
-            if(res > 0)
+            try
             {
-                MessageBox.Show("Record Added", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                clearAll();
+                int res = db.executeQuery(com);
+
+                if (res > 0)
+                {
+                    MessageBox.Show("Record Added", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearAll();
+                }
+                else
+                {
+                    MessageBox.Show("Something Went Wrong", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (SqlException e)
             {
-                MessageBox.Show("Something Went Wrong", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string s = e.ToString();
+                MessageBox.Show("SQL Exception Occured\nPossible Reasons\n1. Entry already exists", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -127,6 +139,15 @@ namespace McsArogya
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void arogyaClaim_Load(object sender, EventArgs e)
+        {
+            if(login.tcount < 0)
+            {
+                MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
             }
         }
     }
