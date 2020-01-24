@@ -40,33 +40,42 @@
             // 
             // dataGrid
             // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeRows = false;
+            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(12, 64);
+            this.dataGrid.Location = new System.Drawing.Point(13, 64);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersWidth = 70;
             this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.Size = new System.Drawing.Size(813, 654);
+            this.dataGrid.Size = new System.Drawing.Size(980, 608);
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellDoubleClick);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Location = new System.Drawing.Point(13, 13);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(53, 44);
             this.button2.TabIndex = 22;
             this.button2.Text = "🡸";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // sbn
             // 
+            this.sbn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sbn.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sbn.Location = new System.Drawing.Point(73, 24);
+            this.sbn.Location = new System.Drawing.Point(505, 24);
             this.sbn.Name = "sbn";
-            this.sbn.Size = new System.Drawing.Size(336, 22);
+            this.sbn.Size = new System.Drawing.Size(428, 22);
             this.sbn.TabIndex = 23;
             this.sbn.Text = "Search By Name";
             this.sbn.Enter += new System.EventHandler(this.sbn_Enter);
@@ -75,21 +84,24 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(772, 13);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button1.Location = new System.Drawing.Point(940, 13);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(53, 44);
             this.button1.TabIndex = 24;
             this.button1.Text = "🔍";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // sbi
             // 
             this.sbi.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sbi.Location = new System.Drawing.Point(415, 24);
+            this.sbi.Location = new System.Drawing.Point(73, 24);
+            this.sbi.Multiline = true;
             this.sbi.Name = "sbi";
-            this.sbi.Size = new System.Drawing.Size(350, 22);
+            this.sbi.Size = new System.Drawing.Size(426, 22);
             this.sbi.TabIndex = 25;
             this.sbi.Text = "Search By Account Number";
             this.sbi.Enter += new System.EventHandler(this.sbi_Enter);
@@ -99,19 +111,22 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(13, 724);
+            this.button3.BackColor = System.Drawing.Color.LimeGreen;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button3.Location = new System.Drawing.Point(0, 678);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(812, 43);
+            this.button3.Size = new System.Drawing.Size(1006, 43);
             this.button3.TabIndex = 26;
             this.button3.Text = "Export to Excel";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // viewmem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 779);
+            this.BackColor = System.Drawing.Color.PeachPuff;
+            this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.sbi);
             this.Controls.Add(this.button1);
@@ -123,6 +138,7 @@
             this.Name = "viewmem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "viewmem";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.viewmem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
