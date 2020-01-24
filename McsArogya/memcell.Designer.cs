@@ -54,6 +54,17 @@
             this.age = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.no = new System.Windows.Forms.RadioButton();
+            this.yes = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bpl = new System.Windows.Forms.RadioButton();
+            this.apl = new System.Windows.Forms.RadioButton();
+            this.bloodGroup = new System.Windows.Forms.ComboBox();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // occupation
@@ -282,7 +293,7 @@
             // 
             this.age.Location = new System.Drawing.Point(208, 162);
             this.age.Margin = new System.Windows.Forms.Padding(4);
-            this.age.MaxLength = 10;
+            this.age.MaxLength = 3;
             this.age.Name = "age";
             this.age.ReadOnly = true;
             this.age.Size = new System.Drawing.Size(253, 22);
@@ -309,11 +320,136 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(334, 524);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(127, 59);
+            this.button4.TabIndex = 50;
+            this.button4.Text = "Edit";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(206, 443);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(255, 74);
+            this.button5.TabIndex = 51;
+            this.button5.Text = "Update";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.no);
+            this.groupBox2.Controls.Add(this.yes);
+            this.groupBox2.Location = new System.Drawing.Point(208, 334);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(144, 36);
+            this.groupBox2.TabIndex = 53;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Visible = false;
+            // 
+            // no
+            // 
+            this.no.AutoSize = true;
+            this.no.Location = new System.Drawing.Point(76, 7);
+            this.no.Margin = new System.Windows.Forms.Padding(4);
+            this.no.Name = "no";
+            this.no.Size = new System.Drawing.Size(45, 21);
+            this.no.TabIndex = 1;
+            this.no.Text = "no";
+            this.no.UseVisualStyleBackColor = true;
+            this.no.Visible = false;
+            // 
+            // yes
+            // 
+            this.yes.AutoSize = true;
+            this.yes.Checked = true;
+            this.yes.Location = new System.Drawing.Point(8, 7);
+            this.yes.Margin = new System.Windows.Forms.Padding(4);
+            this.yes.Name = "yes";
+            this.yes.Size = new System.Drawing.Size(51, 21);
+            this.yes.TabIndex = 0;
+            this.yes.TabStop = true;
+            this.yes.Text = "yes";
+            this.yes.UseVisualStyleBackColor = true;
+            this.yes.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.bpl);
+            this.groupBox1.Controls.Add(this.apl);
+            this.groupBox1.Location = new System.Drawing.Point(208, 290);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(144, 36);
+            this.groupBox1.TabIndex = 52;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
+            // bpl
+            // 
+            this.bpl.AutoSize = true;
+            this.bpl.Location = new System.Drawing.Point(76, 7);
+            this.bpl.Margin = new System.Windows.Forms.Padding(4);
+            this.bpl.Name = "bpl";
+            this.bpl.Size = new System.Drawing.Size(55, 21);
+            this.bpl.TabIndex = 1;
+            this.bpl.Text = "BPL";
+            this.bpl.UseVisualStyleBackColor = true;
+            this.bpl.Visible = false;
+            // 
+            // apl
+            // 
+            this.apl.AutoSize = true;
+            this.apl.Checked = true;
+            this.apl.Location = new System.Drawing.Point(8, 7);
+            this.apl.Margin = new System.Windows.Forms.Padding(4);
+            this.apl.Name = "apl";
+            this.apl.Size = new System.Drawing.Size(55, 21);
+            this.apl.TabIndex = 0;
+            this.apl.TabStop = true;
+            this.apl.Text = "APL";
+            this.apl.UseVisualStyleBackColor = true;
+            this.apl.Visible = false;
+            // 
+            // bloodGroup
+            // 
+            this.bloodGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bloodGroup.FormattingEnabled = true;
+            this.bloodGroup.Items.AddRange(new object[] {
+            "A+",
+            "A-",
+            "B+",
+            "B-",
+            "O+",
+            "O-",
+            "AB+",
+            "AB-"});
+            this.bloodGroup.Location = new System.Drawing.Point(208, 378);
+            this.bloodGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.bloodGroup.Name = "bloodGroup";
+            this.bloodGroup.Size = new System.Drawing.Size(143, 24);
+            this.bloodGroup.TabIndex = 54;
+            this.bloodGroup.Visible = false;
+            // 
             // memcell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(476, 682);
+            this.Controls.Add(this.bloodGroup);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.age);
             this.Controls.Add(this.label10);
@@ -343,6 +479,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "memcell";
             this.Load += new System.EventHandler(this.memcell_Load);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +514,14 @@
         private System.Windows.Forms.TextBox age;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton no;
+        private System.Windows.Forms.RadioButton yes;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton bpl;
+        private System.Windows.Forms.RadioButton apl;
+        private System.Windows.Forms.ComboBox bloodGroup;
     }
 }

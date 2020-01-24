@@ -92,5 +92,92 @@ namespace McsArogya
                 vc.Show();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            aname.ReadOnly = false;
+            age.ReadOnly = false;
+            arcard.ReadOnly = false;
+            add.ReadOnly = false;
+            contact.ReadOnly = false;
+            ddesc.ReadOnly = false;
+            thospital.ReadOnly = false;
+
+            button5.Visible = true;
+            button1.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (login.tcount < 0)
+            {
+                MessageBox.Show("Software under test: Max Record Limit Reached", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                System.Windows.Forms.Application.Exit();
+            }
+            login.tcount--;
+            string s_name, s_add, s_dis, s_hosp;
+            int s_age = -1;
+            long s_anum = -1, s_acard = -1, s_contact = -1;
+
+            s_name = aname.Text;
+            s_add = add.Text;
+            s_dis = ddesc.Text;
+            s_hosp = thospital.Text;
+
+            if (s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals(""))
+            {
+                MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals(""))
+                {
+                    MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    s_age = int.Parse(age.Text);
+                    s_anum = long.Parse(anum.Text);
+                    s_acard = long.Parse(arcard.Text);
+                    s_contact = long.Parse(contact.Text);
+                    updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp);
+                }
+            }
+
+        }
+
+        private void updateDb(string s_name, int s_age, long s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp)
+        {
+            DbAccess db = new DbAccess();
+            DataTable dt = new DataTable();
+            string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname WHERE anum = @anum";
+            SqlCommand comm = new SqlCommand(query);
+            comm.Parameters.AddWithValue("@name", s_name);
+            comm.Parameters.AddWithValue("@age", s_age);
+            comm.Parameters.AddWithValue("@add", s_add);
+            comm.Parameters.AddWithValue("@ac", s_acard);
+            comm.Parameters.AddWithValue("@con", s_contact);
+            comm.Parameters.AddWithValue("@ddes", s_dis);
+            comm.Parameters.AddWithValue("@hname", s_hosp);
+            comm.Parameters.AddWithValue("@anum", s_anum);
+
+            try
+            {
+                db.executeQuery(comm);
+                MessageBox.Show("Updation Successfull", "Mcs-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                viewclaim vc = new viewclaim();
+                this.Hide();
+                vc.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something Went Wrong!!", "Mcs-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
