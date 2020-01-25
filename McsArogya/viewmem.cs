@@ -36,10 +36,8 @@ namespace McsArogya
             dt.Columns.Add("Occupation"); */
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query = " SELECT * from members; ";
+            string query =  "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation from members; ";
             db.readDatathroughAdapter(query, dt);
-            DataGridViewColumn dc = dataGrid.Columns[3];
-            dc.Width = 185;
 
         }
 
@@ -136,15 +134,15 @@ namespace McsArogya
             string query = "";
             if (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT * FROM members";
+                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members";
             }
             if (!sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT * FROM members WHERE name LIKE '" + sbn.Text + "%';";
+                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members WHERE name LIKE '" + sbn.Text + "%';";
             }
             else if (!sbi.Text.Equals("Search By Account Number"))
             {
-                query = "SELECT * FROM members WHERE anum LIKE '" + sbi.Text + "%';";
+                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members WHERE anum LIKE '" + sbi.Text + "%';";
             }
 
             if (!query.Equals(""))
@@ -177,24 +175,23 @@ namespace McsArogya
         {
             try
             {
-                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[1].Value);
-                db_name = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-                db_address = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[4].Value);
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[4].Value);
-                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[5].Value);
-                db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[6].Value);
-                db_rc_type = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
-                db_mc_status = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
-                db_blood_group = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
-                db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[10].Value.ToString();
+                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[0].Value);
+                db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+                db_address = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
+                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[3].Value);
+                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[4].Value);
+                db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[5].Value);
+                db_rc_type = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
+                db_mc_status = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
+                db_blood_group = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
 
                 memcell mc = new memcell();
                 mc.Show();
             }
             catch(Exception ex)
             {
-                
+                Console.WriteLine("" + ex.StackTrace);
             }
 
             

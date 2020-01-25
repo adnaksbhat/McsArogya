@@ -25,7 +25,7 @@ namespace McsArogya
         {
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query = " SELECT * from claimants; ";
+            string query = " SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
             db.readDatathroughAdapter(query, dt);
         }
 
@@ -34,15 +34,15 @@ namespace McsArogya
             string query = "";
             if (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT * FROM claimants";
+                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants";
             }
             if (!sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT * FROM claimants WHERE name LIKE '" + sbn.Text + "%';";
+                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants WHERE name LIKE '" + sbn.Text + "%';";
             }
             else if (!sbi.Text.Equals("Search By Account Number"))
             {
-                query = "SELECT * FROM claimants WHERE anum LIKE '" + sbi.Text + "%';";
+                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants WHERE anum LIKE '" + sbi.Text + "%';";
             }
 
             if (!query.Equals(""))
@@ -92,14 +92,14 @@ namespace McsArogya
         {
             try
             {
-                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[1].Value);
-                db_name = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[3].Value);
-                db_address = dataGrid.Rows[e.RowIndex].Cells[4].Value.ToString();
-                db_a_card = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[5].Value);
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[6].Value);
-                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
-                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[0].Value);
+                db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[2].Value);
+                db_address = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
+                db_a_card = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[4].Value);
+                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[5].Value);
+                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
+                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
 
                 claimcell cc = new claimcell();
                 cc.Show();
@@ -181,9 +181,5 @@ namespace McsArogya
             }
         }
 
-        private void dataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
     }
 }
