@@ -19,10 +19,7 @@ namespace McsArogya
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            viewclaim vc = new viewclaim();
             this.Hide();
-            vc.Show();
         }
 
         private void claimcell_Load(object sender, EventArgs e)
@@ -169,9 +166,7 @@ namespace McsArogya
                 db.executeQuery(comm);
                 MessageBox.Show("Updation Successfull", "Mcs-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                viewclaim vc = new viewclaim();
                 this.Hide();
-                vc.Show();
             }
             catch (Exception ex)
             {

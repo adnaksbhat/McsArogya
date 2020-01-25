@@ -44,14 +44,12 @@ namespace McsArogya
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
             viewmem vm = new viewmem();
             vm.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
             viewclaim vc = new viewclaim();
             vc.Show();
         }

@@ -46,8 +46,6 @@ namespace McsArogya
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            home hm = new home();
-            hm.Show();
         }
 
         private void sbn_Enter(object sender, EventArgs e)
@@ -191,7 +189,6 @@ namespace McsArogya
                 db_blood_group = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
                 db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[10].Value.ToString();
 
-                this.Hide();
                 memcell mc = new memcell();
                 mc.Show();
             }

@@ -48,12 +48,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(13, 64);
+            this.dataGrid.Location = new System.Drawing.Point(13, 90);
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersWidth = 70;
             this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.Size = new System.Drawing.Size(980, 608);
+            this.dataGrid.Size = new System.Drawing.Size(980, 551);
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellDoubleClick);
             // 
@@ -63,7 +63,7 @@
             this.button2.Location = new System.Drawing.Point(13, 13);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 44);
+            this.button2.Size = new System.Drawing.Size(87, 70);
             this.button2.TabIndex = 22;
             this.button2.Text = "🡸";
             this.button2.UseVisualStyleBackColor = false;
@@ -71,11 +71,11 @@
             // 
             // sbn
             // 
-            this.sbn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sbn.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sbn.Location = new System.Drawing.Point(505, 24);
+            this.sbn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.sbn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.sbn.Location = new System.Drawing.Point(307, 23);
             this.sbn.Name = "sbn";
-            this.sbn.Size = new System.Drawing.Size(428, 22);
+            this.sbn.Size = new System.Drawing.Size(396, 22);
             this.sbn.TabIndex = 23;
             this.sbn.Text = "Search By Name";
             this.sbn.Enter += new System.EventHandler(this.sbn_Enter);
@@ -86,10 +86,10 @@
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.Location = new System.Drawing.Point(940, 13);
+            this.button1.Location = new System.Drawing.Point(906, 13);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 44);
+            this.button1.Size = new System.Drawing.Size(87, 70);
             this.button1.TabIndex = 24;
             this.button1.Text = "🔍";
             this.button1.UseVisualStyleBackColor = false;
@@ -97,11 +97,12 @@
             // 
             // sbi
             // 
-            this.sbi.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.sbi.Location = new System.Drawing.Point(73, 24);
+            this.sbi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.sbi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.sbi.Location = new System.Drawing.Point(307, 61);
             this.sbi.Multiline = true;
             this.sbi.Name = "sbi";
-            this.sbi.Size = new System.Drawing.Size(426, 22);
+            this.sbi.Size = new System.Drawing.Size(396, 22);
             this.sbi.TabIndex = 25;
             this.sbi.Text = "Search By Account Number";
             this.sbi.Enter += new System.EventHandler(this.sbi_Enter);
@@ -113,9 +114,9 @@
             // 
             this.button3.BackColor = System.Drawing.Color.LimeGreen;
             this.button3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button3.Location = new System.Drawing.Point(0, 678);
+            this.button3.Location = new System.Drawing.Point(0, 647);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(1006, 43);
+            this.button3.Size = new System.Drawing.Size(1006, 74);
             this.button3.TabIndex = 26;
             this.button3.Text = "Export to Excel";
             this.button3.UseVisualStyleBackColor = false;

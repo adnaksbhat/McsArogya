@@ -58,8 +58,6 @@ namespace McsArogya
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            home hm = new home();
-            hm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -104,7 +102,6 @@ namespace McsArogya
                 db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
 
                 claimcell cc = new claimcell();
-                this.Hide();
                 cc.Show();
             }catch(Exception ex)
             {
