@@ -21,13 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_473F04877CCA4BFCBC72449F817EB4F4"
+        "MsmKey" = "8:_BB95B2C86114429E8DA5957B00397DC5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BB95B2C86114429E8DA5957B00397DC5"
+        "MsmKey" = "8:_FF0799CB07E041868DB1837EE89522E7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -137,10 +137,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_473F04877CCA4BFCBC72449F817EB4F4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BB95B2C86114429E8DA5957B00397DC5"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\arogya-queries.sql"
-            "TargetName" = "8:arogya-queries.sql"
+            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\mcs_logo.ico"
+            "TargetName" = "8:mcs_logo.ico"
             "Tag" = "8:"
             "Folder" = "8:_C24C7501D7E549E1B07CBDB98B2962F6"
             "Condition" = "8:"
@@ -157,10 +157,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BB95B2C86114429E8DA5957B00397DC5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FF0799CB07E041868DB1837EE89522E7"
             {
-            "SourcePath" = "8:..\\..\\..\\..\\Downloads\\mcs_logo.ico"
-            "TargetName" = "8:mcs_logo.ico"
+            "SourcePath" = "8:..\\..\\..\\..\\Desktop\\arogya-queries.sql"
+            "TargetName" = "8:arogya-queries.sql"
             "Tag" = "8:"
             "Folder" = "8:_C24C7501D7E549E1B07CBDB98B2962F6"
             "Condition" = "8:"
@@ -234,7 +234,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MCS_Arogya"
         "ProductCode" = "8:{6F266E2B-FBF4-4AB8-83EF-0FDFCFED1F6D}"
-        "PackageCode" = "8:{04A3264D-6D77-478E-B126-18C29798F673}"
+        "PackageCode" = "8:{F47618E0-770C-4FF4-9CE2-099B4B36CB8B}"
         "UpgradeCode" = "8:{53989770-EA21-48D1-95C0-A6651E94106F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

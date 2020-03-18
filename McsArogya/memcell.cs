@@ -45,39 +45,46 @@ namespace McsArogya
 
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("Mudbidri Co-Operative Service Bank Ltd.", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 250, 50);
-            e.Graphics.DrawString("Aarogya Card", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 350, 80);
-            e.Graphics.DrawString("Registration Form", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 335, 110);
+            e.Graphics.DrawString("ªÀÄÆqÀÄ©¢æ PÉÆÃ-D¥ÀgÉÃnÃªï ¸À«ð¸ï ¨ÁåAPï °.", new Font("Nudi 01 e", 20, FontStyle.Bold), Brushes.Black, 200, 50);
+            e.Graphics.DrawString("PÀ®àªÀÈPÀë DgÉÆÃUÀå ¸ÀÄgÀPÀëvÁ PÁqÀÄð", new Font("Nudi 01 e", 14, FontStyle.Bold), Brushes.Black, 300, 80);
+            e.Graphics.DrawString("Cfð £ÀªÀÄÆ£É", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 360, 110);
 
-            e.Graphics.DrawString(" Line1 " , new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 200);
-            e.Graphics.DrawString(" Line2 " , new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 225);
-            e.Graphics.DrawString(" Line3 " , new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 250);
+            e.Graphics.DrawString("CzsÀåPÀëgÀÄ/ªÀÄÄRå PÁAiÀÄð¤ªÀðºÀuÁ¢üPÁj", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 175);
+            e.Graphics.DrawString("JA.¹.J¸ï.¨ÁåAPï °.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 200);
+            e.Graphics.DrawString("ªÀÄÆqÀÄ©¢gÉ EªÀjUÉ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 225);
 
-            e.Graphics.DrawString("Applicant Name : " + viewmem.db_name, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 300);
+            e.Graphics.DrawString("CfðzÁgÀ ¸ÀzÀ¸ÀågÀ ºÉ¸ÀgÀÄ : " + viewmem.db_name, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 300);
 
-            e.Graphics.DrawString("Application Number : " + viewmem.db_anum, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 350);
-            e.Graphics.DrawString("Contact : " + viewmem.db_contact, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 550, 350);
+            e.Graphics.DrawString("¸ÀzÀ¸ÀåvÀé ¸ÀASÉå : " + viewmem.db_anum, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 340);
+            e.Graphics.DrawString("zÀÆgÀªÁtÂ ¸ÀASÉå : " + viewmem.db_contact, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 500, 340);
 
-            e.Graphics.DrawString("Age : " + viewmem.db_age, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 400);
-            e.Graphics.DrawString("Aadhar Card Number : " + viewmem.db_aadhar, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 450, 400);
+            e.Graphics.DrawString("CfðzÁgÀgÀ ¥ÁæAiÀÄ : " + viewmem.db_age, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 380);
+            e.Graphics.DrawString("DzsÁgï PÁqÀÄð ¸ÀASÉå : " + viewmem.db_aadhar, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 500, 380);
 
-            e.Graphics.DrawString("Address : " + viewmem.db_address, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 450);
+            e.Graphics.DrawString("«¼Á¸À  : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 420);
+            e.Graphics.DrawString("" + viewmem.db_address, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 120, 420);
 
-            e.Graphics.DrawString("Ration Card : " + viewmem.db_rc_type, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 550);
+            e.Graphics.DrawString("CfðzÁgÀgÀÄ ©.¦.J¯ï./J.¦.J¯ï. PÁqÀÄðzÁgÀgÉÃ : " + viewmem.db_rc_type, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 480);
 
-            e.Graphics.DrawString("Medical Certificate : " + viewmem.db_mc_status, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 600);
+            e.Graphics.DrawString("ªÉÄrPÉèÃªÀiï EvÁå¢ ¸Ë®¨sÀå FUÁUÀ¯ÉÃ ºÉÆA¢zÁÝgÉAiÉÄÃ : " + viewmem.db_mc_status, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 520);
 
-            e.Graphics.DrawString("Blood Group : " + viewmem.db_blood_group, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 650);
-            e.Graphics.DrawString("Occupation : " + viewmem.db_occuptaion, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 550, 650);
+            e.Graphics.DrawString("gÀPÀÛzÀ UÀÄA¥ÀÄ : " + viewmem.db_blood_group, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 560);
+            e.Graphics.DrawString("ªÀÈwÛ : " + viewmem.db_occuptaion, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 500, 560);
 
-            e.Graphics.DrawString(" Line1  " , new Font("Arial", 14, FontStyle.Regular), Brushes.Red, 20, 700);
-            e.Graphics.DrawString(" Line2 " , new Font("Arial", 14, FontStyle.Regular), Brushes.Red, 20, 725);
-            e.Graphics.DrawString(" Line3 " , new Font("Arial", 14, FontStyle.Regular), Brushes.Red, 20, 750);
+            e.Graphics.DrawString("F ªÉÄÃ°£À J¯Áè ªÀiÁ»wUÀ¼ÀÄ £À£Àß w¼ÀÄªÀ½PÉ ªÉÄÃgÉUÉ ¸ÀjAiÀiÁVzÉ JAzÀÄ zÀÈrüÃPÀj¹ F §UÉÎ ¨ÁåAQ£ÀªÀgÀÄ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 105, 620);
+            e.Graphics.DrawString("PÁ®PÁ®PÉÌ ¸ÀÆa¸ÀÄªÀ J¯Áè ±ÀgÀvÀÄÛUÀ¼ÀUÉ £Á£ÀÄ §zÀÞ£ÁVgÀÄvÉÃ£É JAzÀÄ w½¸ÀÄvÁÛ PÀ®àªÀÈPÀë DgÉÆÃUÀå ¸ÀÄgÀPÀëvÁ AiÉÆÃd£ÉAiÀÄ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 650);
+            e.Graphics.DrawString("¸Ë®¨sÀå PÁqÀð£ÀÄß £À£ÀUÉ ¤ÃqÀ¨ÉÃPÁV «£ÀAw¸ÀÄvÉÛÃ£É.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 680);
 
-            e.Graphics.DrawString("Place : ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 850);
-            e.Graphics.DrawString("Date : ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 875);
-            e.Graphics.DrawString("Signature ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 650, 875);
+            e.Graphics.DrawString("¢£ÁAPÀ : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 750);
+            e.Graphics.DrawString("vÀªÀÄä «±Áé", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 700, 730);
+            e.Graphics.DrawString("¸ÀÜ¼À : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 780);
+            e.Graphics.DrawString("(CfðzÁgÀ ¸ÀzÀ¸Àå)", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 700, 800);
 
+            e.Graphics.DrawString("¸À¢æAiÀÄªÀgÀ ¢£ÁAPÀ ................................. gÀAzÀÄ gÀ²Ã¢ £ÀA§æ ............................... ¥ÀæPÁgÀ gÀÆ ...................................", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 850);
+            e.Graphics.DrawString("¥ÁªÀw¹zÀÄÝ ¢£ÁAPÀ ......................................... jAzÀ PÀ®àªÀÈPÀë DgÉÆÃUÀå ¸ÀÄgÀPÀëvÁ  ¸Ë®¨sÀå ¥ÀqÉAiÀÄ®Ä CºÀðgÁVgÀÄvÁÛgÉ.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 880);
+            e.Graphics.DrawString("DqÀ½vÀ ªÀÄAqÀ½ ¤tðAiÀÄ £ÀA§æ ......................................... ¢£ÁAPÀ ........................... gÀAvÉ CfðAiÀÄ£ÀÄß M¥Àà¯ÁVzÉ.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 910);
+
+            e.Graphics.DrawString("CzsÀåPÀëgÀÄ/ªÀÄÄRå PÁAiÀÄð¤ªÀðºÀuÁ¢üPÁj", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 555, 1025);
 
 
 

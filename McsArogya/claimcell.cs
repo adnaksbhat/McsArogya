@@ -43,33 +43,43 @@ namespace McsArogya
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawString("Mudbidri Co-Operative Service Bank Ltd.", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 250, 50);
-            e.Graphics.DrawString("Aarogya Card", new Font("Arial", 14, FontStyle.Bold), Brushes.Black, 350, 80);
-            e.Graphics.DrawString("Claim Form", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 360, 110);
-            e.Graphics.DrawString(" Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has\n been the industry's standard dummy text ever since the 1500s, when an unknown printer took\n a galley of type and scrambled it to make a type specimen book. It has survived not only five\n centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It\n was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum \npassages, and more recently with desktop publishing software like Aldus PageMaker \nincluding versions of Lorem Ipsum.", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 200);
+            e.Graphics.DrawString("ªÀÄÆqÀÄ©¢æ PÉÆÃ-D¥ÀgÉÃnÃªï ¸À«ð¸ï ¨ÁåAPï °.", new Font("Nudi 01 e", 20, FontStyle.Bold), Brushes.Black, 200, 50);
+            e.Graphics.DrawString("PÀ®àªÀÈPÀë DgÉÆÃUÀå ¸ÀÄgÀPÀëvÁ PÁqÀÄð", new Font("Nudi 01 e", 14, FontStyle.Bold), Brushes.Black, 300, 80);
+            e.Graphics.DrawString("PÉèÃªÀiï £ÀªÀÄÆ£É", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 360, 110);
+            e.Graphics.DrawString("CzsÀåPÀëgÀÄ/ªÀÄÄRå PÁAiÀÄð¤ªÀðºÀuÁ¢üPÁj", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 200);
+            e.Graphics.DrawString("JA.¹.J¸ï.¨ÁåAPï °.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 225);
+            e.Graphics.DrawString("ªÀÄÆqÀÄ©¢gÉ EªÀjUÉ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 250);
 
-            e.Graphics.DrawString("Name : "+viewclaim.db_name, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 400);
-            e.Graphics.DrawString("Age : " + viewclaim.db_age, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 700, 400);
+            e.Graphics.DrawString("ªÀiÁ£ÀågÉÃ,", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 300);
+            e.Graphics.DrawString("£Á£ÀÄ JA.¹.J¸ï.¨ÁåAQ£À°ègÀÄªÀ PÀ®àªÀÈPÀë DgÉÆÃUÀå AiÉÆÃd£ÉAiÀÄ ¸Ë®¨sÀå PÁqïð£ÀÄß ºÉÆA¢gÀÄvÉÛÃ£É. £Á£ÀÄ £À£Àß", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 70, 325);
+            e.Graphics.DrawString("C£ÁgÉÆÃUÀåzÀ PÁgÀt ±À¸ÀÛçaQvÉìUÉ M¼À¥ÀnÖgÀÄvÉÛÃ£É. CzÀPÉÌ vÀUÀ°zÀ ªÉÊzÀåQÃAiÀÄ ªÉZÀÑUÀ¼À ©®è£ÀÄß FUÁUÀ¯ÉÃ ¥ÁªÀw¹gÀÄvÉÛÃ£É.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 350);
+            e.Graphics.DrawString("AiÀÄ±À¹é AiÉÆÃd£ÉAiÀÄ°è ¸ÀÆa¸À®àlÖAvÉ aQvÉìUÉ vÀUÀ°zÀ ªÉÆ§®UÀ£ÀÄß AiÉÆÃd£ÉAiÀÄ ¤AiÀÄªÀÄzÀ ¥ÀæPÁgÀ £À£ÀUÉ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 375);
+            e.Graphics.DrawString("»AwgÀÄV¸À¨ÉÃPÁV ¤ªÀÄä°è «£ÀAw¹PÉÆ¼ÀÄîwÛzÉÝÃ£É. aQvÉìUÉ ¸ÀA§AzsÀ¥ÀlÖ J¯Áè zÁR¯ÉUÀ¼À£ÀÄß ªÀÄvÀÄÛ ªÉÊzÁå¢üPÁjUÀ¼À", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 400);
+            e.Graphics.DrawString("ªÀgÀ¢AiÀÄ£ÀÄß EzÀgÉÆA¢UÉ ®VÛÃPÀj¹zÉÝÃ£É.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 425);
+            
 
-            e.Graphics.DrawString("Application Number : " + viewclaim.db_anum, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 450);
-            e.Graphics.DrawString("Aarogya Card Number : " + viewclaim.db_a_card, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 543, 450);
+            e.Graphics.DrawString("ºÉ¸ÀgÀÄ  : " + viewclaim.db_name, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 500);
 
-            e.Graphics.DrawString("Address : ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 500);
-            e.Graphics.DrawString("" + viewclaim.db_address, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 120, 500);
+            e.Graphics.DrawString("¥ÁæAiÀÄ  : " + viewclaim.db_age, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 530);
+            e.Graphics.DrawString("¸ÀzÀ¸ÀåvÀé ¸ÀASÉå :  " + viewclaim.db_anum, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 600, 530);
 
-            e.Graphics.DrawString("Contact : "+viewclaim.db_contact, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 580);
+            e.Graphics.DrawString("DgÉÆÃUÀå PÁqïð£À ¸ÀASÉå  : " + viewclaim.db_a_card, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 560);
 
-            e.Graphics.DrawString("Disease Name : " + viewclaim.db_d_desc, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 630);
+            e.Graphics.DrawString("«¼Á¸À  : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 590);
+            e.Graphics.DrawString("" + viewclaim.db_address, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 120, 590);
+            
+            e.Graphics.DrawString("zÀÆgÀªÁtÂ ¸ÀASÉå  : " + viewclaim.db_contact, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 650);
+            
+            e.Graphics.DrawString("PÁ¬Ä¯ÉAiÀÄ «ªÀgÀ : " + viewclaim.db_d_desc, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 680);
+            
+            e.Graphics.DrawString("aQvÉì ¥ÀqÉzÀÄPÉÆAqÀ D¸ÀàvÉæAiÀÄ «ªÀgÀ : " + viewclaim.db_hosp_name, new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 710);
+            
+            e.Graphics.DrawString("F ªÉÄÃ°£À J¯Áè ªÀiÁ»wUÀ¼ÀÄ £À£Àß w¼ÀÄªÀ½PÉ ªÉÄÃgÉUÉ ¸ÀjAiÀiÁVzÉ JAzÀÄ zÀÈrüÃPÀj¸ÀÄvÉÛÃ£É.", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 130, 800);
 
-            e.Graphics.DrawString("Hospital Name : " + viewclaim.db_hosp_name, new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 680);
-
-            e.Graphics.DrawString("The above details filled are correct as per my knowledge ", new Font("Arial", 14, FontStyle.Regular), Brushes.Red, 175, 730);
-
-            e.Graphics.DrawString("Date : ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 950);
-            e.Graphics.DrawString("Place : ", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 20, 1000);
-            e.Graphics.DrawString("Signature", new Font("Arial", 14, FontStyle.Regular), Brushes.Black, 700, 1000);
-
-
+            e.Graphics.DrawString("¢£ÁAPÀ : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 950);
+            e.Graphics.DrawString("vÀªÀÄä «±Áé", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 700, 950);
+            e.Graphics.DrawString("¸ÀÜ¼À : ", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 20, 1000);
+            e.Graphics.DrawString("CfðzÁgÀ ¸ÀzÀ¸Àå", new Font("Nudi 01 e", 14, FontStyle.Regular), Brushes.Black, 700, 1050);
         }
 
         private void button3_Click(object sender, EventArgs e)
