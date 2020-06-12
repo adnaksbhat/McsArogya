@@ -64,17 +64,17 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(89, 126);
+            this.label1.Location = new System.Drawing.Point(90, 170);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 34);
+            this.label1.Size = new System.Drawing.Size(195, 34);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Applicant Name";
+            this.label1.Text = "Member Name";
             // 
             // aname
             // 
             this.aname.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.aname.Location = new System.Drawing.Point(394, 137);
+            this.aname.Location = new System.Drawing.Point(395, 181);
             this.aname.Margin = new System.Windows.Forms.Padding(4);
             this.aname.Name = "aname";
             this.aname.Size = new System.Drawing.Size(252, 22);
@@ -83,12 +83,14 @@
             // anum
             // 
             this.anum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.anum.Location = new System.Drawing.Point(394, 191);
+            this.anum.Location = new System.Drawing.Point(394, 126);
             this.anum.Margin = new System.Windows.Forms.Padding(4);
             this.anum.MaxLength = 10;
             this.anum.Name = "anum";
             this.anum.Size = new System.Drawing.Size(253, 22);
             this.anum.TabIndex = 4;
+            this.anum.TextChanged += new System.EventHandler(this.anum_TextChanged);
+            this.anum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.anum_KeyDown);
             this.anum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.anum_KeyPress);
             // 
             // label2
@@ -96,12 +98,12 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(89, 180);
+            this.label2.Location = new System.Drawing.Point(89, 115);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(257, 34);
+            this.label2.Size = new System.Drawing.Size(222, 34);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Application Number";
+            this.label2.Text = "Member Number";
             // 
             // label3
             // 
@@ -238,6 +240,7 @@
             this.bloodGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.bloodGroup.FormattingEnabled = true;
             this.bloodGroup.Items.AddRange(new object[] {
+            "--",
             "A+",
             "A-",
             "B+",

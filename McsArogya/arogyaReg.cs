@@ -47,8 +47,8 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string name, add, rc_type, bg, occ,mc_status;
-            long num = -1, con = -1, aadh = -1;
+            string name, add, rc_type, bg, occ,mc_status,num;
+            long con = -1, aadh = -1;
             int ag = -1;
 
             name = aname.Text;
@@ -79,7 +79,7 @@ namespace McsArogya
             }
             else
             {
-                num = long.Parse(anum.Text);
+                num = anum.Text;
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
                 ag = int.Parse(age.Text);
@@ -94,7 +94,7 @@ namespace McsArogya
             }     
         }
 
-        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, long num, long con,int ag, long aadh)
+        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, string num, long con,int ag, long aadh)
         {
             int status = -1;
             DbAccess db = new DbAccess();
@@ -126,17 +126,20 @@ namespace McsArogya
             catch(SqlException e)
             {
                 string s = e.ToString();
-                MessageBox.Show("SQL Exception Occured\nPossible Reasons\n1. Entry already exists", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Console.WriteLine(s);
+                MessageBox.Show("SQL Exception Occured\nPossible Reasons\n1. Entry already exists\n", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
 
         }
 
         private void anum_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            /*if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
+                System.Console.WriteLine("Numeric");
                 e.Handled = true;
-            }
+            }*/
         }
 
         private void contact_KeyPress(object sender, KeyPressEventArgs e)
@@ -163,9 +166,41 @@ namespace McsArogya
             address.Text = "";
             aadhar.Text = "";
             occupation.Text = "";
+            age.Text = "";
             apl.Checked = true;
             yes.Checked = true;
             bloodGroup.SelectedIndex = 0;
+        }
+
+        private void anum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void anum_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                System.Console.WriteLine("Enter pressed");
+                DbAccess db = new DbAccess();
+                string id = anum.Text.ToString();
+                System.Console.WriteLine("id = "+id);
+                string qry = "Select * from memdata where reg_no = '"+id+"';";
+                DataTable dt = new DataTable();
+                db.readDatathroughAdapter(qry, dt);
+                if(dt.Rows.Count != 0)
+                {
+                    aname.Text = dt.Rows[0]["name"].ToString();
+                    address.Text = dt.Rows[0]["address"].ToString();
+                    occupation.Text = dt.Rows[0]["occupation"].ToString();
+                }
+                else
+                {
+                    aname.Text = "";
+                    address.Text = "";
+                    occupation.Text = "";
+                }
+            }
         }
     }
 }

@@ -88,7 +88,7 @@ namespace McsArogya
             if (dr == DialogResult.Yes)
             {
                 DbAccess db = new DbAccess();
-                SqlCommand comm = new SqlCommand("DELETE FROM CLAIMANTS WHERE anum = " + viewclaim.db_anum);
+                SqlCommand comm = new SqlCommand("DELETE FROM CLAIMANTS WHERE anum = '" + viewclaim.db_anum+"';");
                 int res = db.executeQuery(comm);
                 if (res > 0)
                 {
@@ -125,9 +125,9 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string s_name, s_add, s_dis, s_hosp;
+            string s_anum,s_name, s_add, s_dis, s_hosp;
             int s_age = -1;
-            long s_anum = -1, s_acard = -1, s_contact = -1;
+            long s_acard = -1, s_contact = -1;
 
             s_name = aname.Text;
             s_add = add.Text;
@@ -147,7 +147,7 @@ namespace McsArogya
                 else
                 {
                     s_age = int.Parse(age.Text);
-                    s_anum = long.Parse(anum.Text);
+                    s_anum = anum.Text;
                     s_acard = long.Parse(arcard.Text);
                     s_contact = long.Parse(contact.Text);
                     updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp);
@@ -156,7 +156,7 @@ namespace McsArogya
 
         }
 
-        private void updateDb(string s_name, int s_age, long s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp)
+        private void updateDb(string s_name, int s_age, string s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp)
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();

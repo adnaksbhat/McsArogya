@@ -12,9 +12,9 @@ namespace McsArogya
 {
     public partial class viewmem : Form
     {
-        public static double db_anum, db_contact;
+        public static double db_contact;
         public static long db_aadhar;
-        public static string db_name, db_address, db_rc_type, db_mc_status, db_blood_group, db_occuptaion;
+        public static string db_anum,db_name, db_address, db_rc_type, db_mc_status, db_blood_group, db_occuptaion;
         public static int db_age;
         DataTable dt = new DataTable();
         public viewmem()
@@ -175,7 +175,7 @@ namespace McsArogya
         {
             try
             {
-                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[0].Value);
+                db_anum = dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
                 db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
                 db_address = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
                 db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[3].Value);

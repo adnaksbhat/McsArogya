@@ -96,7 +96,7 @@ namespace McsArogya
             if(dr == DialogResult.Yes)
             {
                 DbAccess db = new DbAccess();
-                SqlCommand comm = new SqlCommand("DELETE FROM MEMBERS WHERE anum = " + viewmem.db_anum);
+                SqlCommand comm = new SqlCommand("DELETE FROM MEMBERS WHERE anum = '" + viewmem.db_anum+"';");
                 int res = db.executeQuery(comm);
                 if (res > 0)
                 {
@@ -167,8 +167,8 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string name, add, rc_type, bg, occ, mc_status;
-            long num = -1, con = -1, aadh = -1;
+            string name, add, rc_type, bg, occ, mc_status,num;
+            long con = -1, aadh = -1;
             int ag = -1;
 
             name = aname.Text;
@@ -199,7 +199,7 @@ namespace McsArogya
             }
             else
             {
-                num = long.Parse(anum.Text);
+                num = anum.Text;
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
                 ag = int.Parse(age.Text);
@@ -214,7 +214,7 @@ namespace McsArogya
             }
         }
 
-        public void editDb(string name,string add,string rc_type,string bg,string occ,string mc_status, long num,long con,int ag,long aadh)
+        public void editDb(string name,string add,string rc_type,string bg,string occ,string mc_status, string num,long con,int ag,long aadh)
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();

@@ -164,6 +164,7 @@
             // 
             this.arcard.Location = new System.Drawing.Point(413, 282);
             this.arcard.Margin = new System.Windows.Forms.Padding(4);
+            this.arcard.MaxLength = 16;
             this.arcard.Name = "arcard";
             this.arcard.ReadOnly = true;
             this.arcard.Size = new System.Drawing.Size(253, 22);

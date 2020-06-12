@@ -32,9 +32,9 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string s_name, s_add, s_dis, s_hosp;
+            string s_name, s_add, s_dis, s_hosp, s_anum;
             int s_age = -1;
-            long s_anum = -1, s_acard = -1, s_contact = -1;
+            long s_acard = -1, s_contact = -1;
 
             s_name = aname.Text;
             s_add = add.Text;
@@ -54,7 +54,7 @@ namespace McsArogya
                 else
                 {
                     s_age = int.Parse(age.Text);
-                    s_anum = long.Parse(anum.Text);
+                    s_anum = anum.Text;
                     s_acard = long.Parse(arcard.Text);
                     s_contact = long.Parse(contact.Text);
                     addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp);
@@ -66,7 +66,7 @@ namespace McsArogya
 
         }
 
-        private void addToDb(string s_name,int s_age,long s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp)
+        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp)
         {
             DbAccess db = new DbAccess();
             SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp);");
@@ -120,10 +120,11 @@ namespace McsArogya
 
         private void anum_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            /*if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-            }
+            }*/
+
         }
 
         private void arcard_KeyPress(object sender, KeyPressEventArgs e)
@@ -148,6 +149,41 @@ namespace McsArogya
             {
                 MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 System.Windows.Forms.Application.Exit();
+            }
+        }
+
+        private void anum_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    System.Console.WriteLine("Enter pressed");
+                    DbAccess db = new DbAccess();
+                    string id = anum.Text.ToString();
+                    System.Console.WriteLine("id = " + id);
+                    string qry = "Select * from members where anum = '" + id + "';";
+                    DataTable dt = new DataTable();
+                    db.readDatathroughAdapter(qry, dt);
+                    if(dt.Rows.Count != 0)
+                    {
+                        anum.Text = dt.Rows[0]["anum"].ToString();
+                        aname.Text = dt.Rows[0]["name"].ToString();
+                        age.Text = dt.Rows[0]["age"].ToString();
+                        add.Text = dt.Rows[0]["address"].ToString();
+                        contact.Text = dt.Rows[0]["contact"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Account number not registered", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                System.Console.WriteLine(ex);
+                MessageBox.Show("SQL exception occured. Check logs", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

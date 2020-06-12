@@ -13,8 +13,8 @@ namespace McsArogya
     public partial class viewclaim : Form
     {
         public static int db_age;
-        public static double db_a_card, db_contact, db_anum;
-        public static string db_address,db_name, db_d_desc, db_hosp_name;
+        public static double db_a_card, db_contact;
+        public static string db_address,db_name, db_d_desc, db_hosp_name, db_anum;
         DataTable dt = new DataTable();
         public viewclaim()
         {
@@ -92,11 +92,11 @@ namespace McsArogya
         {
             try
             {
-                db_anum = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[0].Value);
+                db_anum = dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
                 db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
                 db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[2].Value);
                 db_address = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
-                db_a_card = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[4].Value);
+                db_a_card = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[4].Value);
                 db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[5].Value);
                 db_d_desc = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
                 db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();

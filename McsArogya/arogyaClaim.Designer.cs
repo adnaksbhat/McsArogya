@@ -52,7 +52,7 @@
             // aname
             // 
             this.aname.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.aname.Location = new System.Drawing.Point(389, 141);
+            this.aname.Location = new System.Drawing.Point(389, 185);
             this.aname.Margin = new System.Windows.Forms.Padding(4);
             this.aname.Name = "aname";
             this.aname.Size = new System.Drawing.Size(253, 22);
@@ -63,17 +63,17 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(95, 130);
+            this.label1.Location = new System.Drawing.Point(95, 174);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 34);
+            this.label1.Size = new System.Drawing.Size(195, 34);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Applicant Name";
+            this.label1.Text = "Member Name";
             // 
             // age
             // 
             this.age.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.age.Location = new System.Drawing.Point(389, 193);
+            this.age.Location = new System.Drawing.Point(389, 252);
             this.age.Margin = new System.Windows.Forms.Padding(4);
             this.age.MaxLength = 3;
             this.age.Name = "age";
@@ -86,7 +86,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(95, 182);
+            this.label2.Location = new System.Drawing.Point(95, 241);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 34);
@@ -96,11 +96,12 @@
             // anum
             // 
             this.anum.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.anum.Location = new System.Drawing.Point(389, 246);
+            this.anum.Location = new System.Drawing.Point(389, 130);
             this.anum.Margin = new System.Windows.Forms.Padding(4);
             this.anum.Name = "anum";
             this.anum.Size = new System.Drawing.Size(253, 22);
             this.anum.TabIndex = 7;
+            this.anum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.anum_KeyDown);
             this.anum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.anum_KeyPress);
             // 
             // label3
@@ -108,12 +109,12 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(95, 235);
+            this.label3.Location = new System.Drawing.Point(95, 119);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(235, 34);
+            this.label3.Size = new System.Drawing.Size(222, 34);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Applicant Number";
+            this.label3.Text = "Member Number";
             // 
             // arcard
             // 
