@@ -102,6 +102,7 @@ namespace McsArogya
                 db_d_desc = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
                 db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
 
+                this.Hide();
                 claimcell cc = new claimcell();
                 cc.Show();
             }catch(Exception ex)

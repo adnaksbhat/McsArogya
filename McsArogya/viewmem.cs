@@ -215,6 +215,7 @@ namespace McsArogya
                 db_blood_group = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
                 db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
 
+                this.Hide();
                 memcell mc = new memcell();
                 mc.Show();
             }

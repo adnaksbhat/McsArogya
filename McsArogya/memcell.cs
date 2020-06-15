@@ -20,6 +20,8 @@ namespace McsArogya
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            viewmem vm = new viewmem();
+            vm.Show();
         }
 
         private void memcell_Load(object sender, EventArgs e)
@@ -236,6 +238,8 @@ namespace McsArogya
                 MessageBox.Show("Updation Successfull", "Mcs-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Hide();
+                viewmem vm = new viewmem();
+                vm.Show();
             }
             catch (Exception ex)
             {
