@@ -35,6 +35,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,15 +109,28 @@
             // 
             // button3
             // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button3.BackColor = System.Drawing.Color.LimeGreen;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button3.Location = new System.Drawing.Point(0, 647);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(1006, 74);
+            this.button3.Size = new System.Drawing.Size(503, 74);
             this.button3.TabIndex = 31;
             this.button3.Text = "Export to Excel";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.LimeGreen;
+            this.button4.Location = new System.Drawing.Point(509, 647);
+            this.button4.Name = "button4";
+            this.button4.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button4.Size = new System.Drawing.Size(503, 74);
+            this.button4.TabIndex = 32;
+            this.button4.Text = "Generate CSV";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // viewclaim
             // 
@@ -124,6 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.sbi);
             this.Controls.Add(this.button1);
@@ -151,5 +166,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

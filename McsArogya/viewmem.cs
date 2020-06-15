@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace McsArogya
 {
@@ -114,6 +115,34 @@ namespace McsArogya
                 
             }
            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11;
+            List<string> backup = new List<string>(dataGrid.Rows.Count);
+            for(int i=0;i<dataGrid.Rows.Count;i++)
+            {
+                s1 = dataGrid.Rows[i].Cells[0].Value.ToString();
+                s2 = dataGrid.Rows[i].Cells[1].Value.ToString();
+                s3 = dataGrid.Rows[i].Cells[2].Value.ToString();
+                s4 = dataGrid.Rows[i].Cells[3].Value.ToString();
+                s5 = dataGrid.Rows[i].Cells[4].Value.ToString();
+                s6 = dataGrid.Rows[i].Cells[5].Value.ToString();
+                s7 = dataGrid.Rows[i].Cells[6].Value.ToString();
+                s8 = dataGrid.Rows[i].Cells[7].Value.ToString();
+                s9 = dataGrid.Rows[i].Cells[8].Value.ToString();
+                s10 = dataGrid.Rows[i].Cells[9].Value.ToString();
+                string str = s1 + "," + s2 + "," + s3 + "," + s4 + "," + s5 + "," + s6 + "," + s7 + "," + s8 + "," + s9 + "," + s10;
+                backup.Add(str);
+                System.Console.WriteLine();
+            }
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            path += "\\memdata.csv";
+            string[] backupA = backup.ToArray();
+            File.WriteAllLines(path,backupA);
+            MessageBox.Show("Backup file generated\nFile name: memdata.csv\nPath: "+path,"MCS-Arogya",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
