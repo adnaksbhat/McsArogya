@@ -132,6 +132,8 @@
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(253, 88);
             this.address.TabIndex = 5;
+            this.address.TextChanged += new System.EventHandler(this.address_TextChanged);
+            this.address.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.address_KeyPress);
             // 
             // contact
             // 
@@ -142,6 +144,7 @@
             this.contact.Name = "contact";
             this.contact.Size = new System.Drawing.Size(253, 22);
             this.contact.TabIndex = 3;
+            this.contact.TextChanged += new System.EventHandler(this.contact_TextChanged);
             this.contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contact_KeyPress);
             // 
             // label4
@@ -225,6 +228,7 @@
             this.apl.Name = "apl";
             this.apl.Size = new System.Drawing.Size(55, 21);
             this.apl.TabIndex = 8;
+            this.apl.TabStop = true;
             this.apl.Text = "APL";
             this.apl.UseVisualStyleBackColor = true;
             // 
@@ -352,6 +356,7 @@
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(51, 21);
             this.yes.TabIndex = 10;
+            this.yes.TabStop = true;
             this.yes.Text = "yes";
             this.yes.UseVisualStyleBackColor = true;
             // 
@@ -364,6 +369,7 @@
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(253, 22);
             this.age.TabIndex = 4;
+            this.age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.age_KeyPress);
             // 
             // label10
             // 
@@ -386,6 +392,7 @@
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(55, 22);
             this.gender.TabIndex = 7;
+            this.gender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gender_KeyPress);
             // 
             // label11
             // 
@@ -408,6 +415,7 @@
             this.paid.Name = "paid";
             this.paid.Size = new System.Drawing.Size(253, 22);
             this.paid.TabIndex = 14;
+            this.paid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paid_KeyPress);
             // 
             // label12
             // 
@@ -429,6 +437,7 @@
             this.ar_card.Name = "ar_card";
             this.ar_card.Size = new System.Drawing.Size(253, 22);
             this.ar_card.TabIndex = 15;
+            this.ar_card.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ar_card_KeyPress);
             // 
             // label13
             // 

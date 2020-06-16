@@ -190,5 +190,21 @@ namespace McsArogya
                 MessageBox.Show("SQL exception occured. Check logs", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void add_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void gender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

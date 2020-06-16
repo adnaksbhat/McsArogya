@@ -228,5 +228,55 @@ namespace McsArogya
         {
 
         }
+
+        private void address_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void address_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == ',')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void contact_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void age_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void paid_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ar_card_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void gender_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -149,6 +149,7 @@
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(253, 88);
             this.add.TabIndex = 5;
+            this.add.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.add_KeyPress);
             // 
             // label5
             // 
@@ -273,6 +274,7 @@
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(55, 22);
             this.gender.TabIndex = 6;
+            this.gender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gender_KeyPress);
             // 
             // arogyaClaim
             // 
