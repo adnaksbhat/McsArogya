@@ -97,6 +97,12 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mcs-Arogya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mcs-Arogya.Designer.cs">
+      <DependentUpon>Mcs-Arogya.cs</DependentUpon>
+    </Compile>
     <Compile Include="memcell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mcs-Arogya.resx">
+      <DependentUpon>Mcs-Arogya.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="memcell.resx">
       <DependentUpon>memcell.cs</DependentUpon>

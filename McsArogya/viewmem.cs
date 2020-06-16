@@ -116,6 +116,7 @@ namespace McsArogya
             }
            
         }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -141,8 +142,9 @@ namespace McsArogya
             path += "\\memdata.csv";
             string[] backupA = backup.ToArray();
             File.WriteAllLines(path,backupA);
-            MessageBox.Show("Backup file generated\nFile name: memdata.csv\nPath: "+path,"MCS-Arogya",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
+            //MessageBox.Show("Backup file generated\nFile name: memdata.csv\nPath: "+path,"MCS-Arogya",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            Mcs_Arogya mc = new Mcs_Arogya("memdata.csv");
+            mc.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

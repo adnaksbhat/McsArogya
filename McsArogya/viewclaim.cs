@@ -135,7 +135,9 @@ namespace McsArogya
             path += "\\claimdata.csv";
             string[] backupA = backup.ToArray();
             File.WriteAllLines(path, backupA);
-            MessageBox.Show("Backup file generated\nFile name: claimdata.csv\nPath: " + path, "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Backup file generated\nFile name: claimdata.csv\nPath: " + path, "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Mcs_Arogya mc = new Mcs_Arogya("claimdata.csv");
+            mc.ShowDialog();
         }
 
         private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
