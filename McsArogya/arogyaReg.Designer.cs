@@ -84,7 +84,7 @@
             this.aname.Margin = new System.Windows.Forms.Padding(4);
             this.aname.Name = "aname";
             this.aname.Size = new System.Drawing.Size(252, 22);
-            this.aname.TabIndex = 1;
+            this.aname.TabIndex = 2;
             // 
             // anum
             // 
@@ -94,7 +94,7 @@
             this.anum.MaxLength = 10;
             this.anum.Name = "anum";
             this.anum.Size = new System.Drawing.Size(253, 22);
-            this.anum.TabIndex = 4;
+            this.anum.TabIndex = 1;
             this.anum.TextChanged += new System.EventHandler(this.anum_TextChanged);
             this.anum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.anum_KeyDown);
             this.anum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.anum_KeyPress);
@@ -131,7 +131,7 @@
             this.address.Multiline = true;
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(253, 88);
-            this.address.TabIndex = 6;
+            this.address.TabIndex = 5;
             // 
             // contact
             // 
@@ -141,7 +141,7 @@
             this.contact.MaxLength = 10;
             this.contact.Name = "contact";
             this.contact.Size = new System.Drawing.Size(253, 22);
-            this.contact.TabIndex = 9;
+            this.contact.TabIndex = 3;
             this.contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contact_KeyPress);
             // 
             // label4
@@ -164,7 +164,8 @@
             this.aadhar.MaxLength = 16;
             this.aadhar.Name = "aadhar";
             this.aadhar.Size = new System.Drawing.Size(253, 22);
-            this.aadhar.TabIndex = 11;
+            this.aadhar.TabIndex = 6;
+            this.aadhar.TextChanged += new System.EventHandler(this.aadhar_TextChanged);
             this.aadhar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.aadhar_KeyPress);
             // 
             // label5
@@ -201,7 +202,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(144, 36);
-            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             // 
             // bpl
@@ -211,7 +212,7 @@
             this.bpl.Margin = new System.Windows.Forms.Padding(4);
             this.bpl.Name = "bpl";
             this.bpl.Size = new System.Drawing.Size(55, 21);
-            this.bpl.TabIndex = 1;
+            this.bpl.TabIndex = 9;
             this.bpl.Text = "BPL";
             this.bpl.UseVisualStyleBackColor = true;
             // 
@@ -223,8 +224,7 @@
             this.apl.Margin = new System.Windows.Forms.Padding(4);
             this.apl.Name = "apl";
             this.apl.Size = new System.Drawing.Size(55, 21);
-            this.apl.TabIndex = 0;
-            this.apl.TabStop = true;
+            this.apl.TabIndex = 8;
             this.apl.Text = "APL";
             this.apl.UseVisualStyleBackColor = true;
             // 
@@ -259,7 +259,7 @@
             this.bloodGroup.Margin = new System.Windows.Forms.Padding(4);
             this.bloodGroup.Name = "bloodGroup";
             this.bloodGroup.Size = new System.Drawing.Size(145, 24);
-            this.bloodGroup.TabIndex = 17;
+            this.bloodGroup.TabIndex = 12;
             // 
             // label8
             // 
@@ -305,7 +305,7 @@
             this.occupation.Margin = new System.Windows.Forms.Padding(4);
             this.occupation.Name = "occupation";
             this.occupation.Size = new System.Drawing.Size(253, 22);
-            this.occupation.TabIndex = 22;
+            this.occupation.TabIndex = 13;
             // 
             // label9
             // 
@@ -329,7 +329,7 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(144, 36);
-            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             // 
             // no
@@ -339,7 +339,7 @@
             this.no.Margin = new System.Windows.Forms.Padding(4);
             this.no.Name = "no";
             this.no.Size = new System.Drawing.Size(45, 21);
-            this.no.TabIndex = 1;
+            this.no.TabIndex = 11;
             this.no.Text = "no";
             this.no.UseVisualStyleBackColor = true;
             // 
@@ -351,8 +351,7 @@
             this.yes.Margin = new System.Windows.Forms.Padding(4);
             this.yes.Name = "yes";
             this.yes.Size = new System.Drawing.Size(51, 21);
-            this.yes.TabIndex = 0;
-            this.yes.TabStop = true;
+            this.yes.TabIndex = 10;
             this.yes.Text = "yes";
             this.yes.UseVisualStyleBackColor = true;
             // 
@@ -364,7 +363,7 @@
             this.age.MaxLength = 3;
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(253, 22);
-            this.age.TabIndex = 25;
+            this.age.TabIndex = 4;
             // 
             // label10
             // 
@@ -386,7 +385,7 @@
             this.gender.MaxLength = 1;
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(55, 22);
-            this.gender.TabIndex = 26;
+            this.gender.TabIndex = 7;
             // 
             // label11
             // 
@@ -408,7 +407,7 @@
             this.paid.Margin = new System.Windows.Forms.Padding(4);
             this.paid.Name = "paid";
             this.paid.Size = new System.Drawing.Size(253, 22);
-            this.paid.TabIndex = 29;
+            this.paid.TabIndex = 14;
             // 
             // label12
             // 
@@ -429,7 +428,7 @@
             this.ar_card.Margin = new System.Windows.Forms.Padding(4);
             this.ar_card.Name = "ar_card";
             this.ar_card.Size = new System.Drawing.Size(253, 22);
-            this.ar_card.TabIndex = 31;
+            this.ar_card.TabIndex = 15;
             // 
             // label13
             // 

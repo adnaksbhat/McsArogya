@@ -58,7 +58,7 @@
             this.aname.Margin = new System.Windows.Forms.Padding(4);
             this.aname.Name = "aname";
             this.aname.Size = new System.Drawing.Size(253, 22);
-            this.aname.TabIndex = 3;
+            this.aname.TabIndex = 2;
             // 
             // label1
             // 
@@ -80,7 +80,7 @@
             this.age.MaxLength = 3;
             this.age.Name = "age";
             this.age.Size = new System.Drawing.Size(253, 22);
-            this.age.TabIndex = 5;
+            this.age.TabIndex = 3;
             this.age.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.age_KeyPress);
             // 
             // label2
@@ -102,7 +102,7 @@
             this.anum.Margin = new System.Windows.Forms.Padding(4);
             this.anum.Name = "anum";
             this.anum.Size = new System.Drawing.Size(253, 22);
-            this.anum.TabIndex = 7;
+            this.anum.TabIndex = 1;
             this.anum.KeyDown += new System.Windows.Forms.KeyEventHandler(this.anum_KeyDown);
             this.anum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.anum_KeyPress);
             // 
@@ -125,7 +125,7 @@
             this.arcard.Margin = new System.Windows.Forms.Padding(4);
             this.arcard.Name = "arcard";
             this.arcard.Size = new System.Drawing.Size(253, 22);
-            this.arcard.TabIndex = 9;
+            this.arcard.TabIndex = 4;
             this.arcard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arcard_KeyPress);
             // 
             // label4
@@ -148,7 +148,7 @@
             this.add.Multiline = true;
             this.add.Name = "add";
             this.add.Size = new System.Drawing.Size(253, 88);
-            this.add.TabIndex = 11;
+            this.add.TabIndex = 5;
             // 
             // label5
             // 
@@ -170,7 +170,7 @@
             this.contact.MaxLength = 10;
             this.contact.Name = "contact";
             this.contact.Size = new System.Drawing.Size(253, 22);
-            this.contact.TabIndex = 13;
+            this.contact.TabIndex = 7;
             this.contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contact_KeyPress);
             // 
             // label6
@@ -192,7 +192,7 @@
             this.ddesc.Margin = new System.Windows.Forms.Padding(4);
             this.ddesc.Name = "ddesc";
             this.ddesc.Size = new System.Drawing.Size(253, 22);
-            this.ddesc.TabIndex = 15;
+            this.ddesc.TabIndex = 8;
             // 
             // label7
             // 
@@ -213,7 +213,7 @@
             this.thospital.Margin = new System.Windows.Forms.Padding(4);
             this.thospital.Name = "thospital";
             this.thospital.Size = new System.Drawing.Size(253, 22);
-            this.thospital.TabIndex = 17;
+            this.thospital.TabIndex = 9;
             // 
             // label8
             // 
@@ -272,7 +272,7 @@
             this.gender.MaxLength = 1;
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(55, 22);
-            this.gender.TabIndex = 28;
+            this.gender.TabIndex = 6;
             // 
             // arogyaClaim
             // 

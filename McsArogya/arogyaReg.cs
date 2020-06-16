@@ -25,6 +25,8 @@ namespace McsArogya
         private void arogyaReg_Load(object sender, EventArgs e)
         {
             bloodGroup.SelectedIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox2.TabStop = false;
             if (login.tcount < 0)
             {
                 MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -78,7 +80,7 @@ namespace McsArogya
                 MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-            {
+            {   
                 num = anum.Text;
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
@@ -88,7 +90,11 @@ namespace McsArogya
                 acard = int.Parse(ar_card.Text);
                 if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals("") )
                 {
-                    MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Empty field detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if(bg.Equals("--"))
+                {
+                    MessageBox.Show("Please select the blood group", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -200,6 +206,7 @@ namespace McsArogya
                     address.Text = dt.Rows[0]["address"].ToString();
                     occupation.Text = dt.Rows[0]["occupation"].ToString();
                     gender.Text = dt.Rows[0]["gender"].ToString();
+                    bloodGroup.Text = "--";
                 }
                 else
                 {
@@ -207,11 +214,17 @@ namespace McsArogya
                     address.Text = "";
                     occupation.Text = "";
                     gender.Text = "";
+                    bloodGroup.Text = "--";
                 }
             }
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aadhar_TextChanged(object sender, EventArgs e)
         {
 
         }

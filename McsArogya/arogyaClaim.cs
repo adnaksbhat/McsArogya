@@ -146,6 +146,7 @@ namespace McsArogya
 
         private void arogyaClaim_Load(object sender, EventArgs e)
         {
+            anum.Focus();
             if(login.tcount < 0)
             {
                 MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
