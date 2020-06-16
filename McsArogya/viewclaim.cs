@@ -15,7 +15,7 @@ namespace McsArogya
     {
         public static int db_age;
         public static double db_a_card, db_contact;
-        public static string db_address,db_name, db_d_desc, db_hosp_name, db_anum;
+        public static string db_address,db_name, db_d_desc, db_hosp_name, db_anum,db_gender;
         DataTable dt = new DataTable();
         public viewclaim()
         {
@@ -26,7 +26,7 @@ namespace McsArogya
         {
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query = " SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
+            string query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
             db.readDatathroughAdapter(query, dt);
         }
 
@@ -96,11 +96,12 @@ namespace McsArogya
                 db_anum = dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
                 db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
                 db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[2].Value);
-                db_address = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
-                db_a_card = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[4].Value);
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[5].Value);
-                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
-                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
+                db_address = dataGrid.Rows[e.RowIndex].Cells[4].Value.ToString();
+                db_a_card = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[5].Value);
+                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[6].Value);
+                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
+                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_gender = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
 
                 this.Hide();
                 claimcell cc = new claimcell();
@@ -135,6 +136,11 @@ namespace McsArogya
             string[] backupA = backup.ToArray();
             File.WriteAllLines(path, backupA);
             MessageBox.Show("Backup file generated\nFile name: claimdata.csv\nPath: " + path, "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void dataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void button3_Click(object sender, EventArgs e)

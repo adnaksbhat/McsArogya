@@ -105,6 +105,7 @@
             this.dataGrid.RowTemplate.Height = 24;
             this.dataGrid.Size = new System.Drawing.Size(980, 551);
             this.dataGrid.TabIndex = 26;
+            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
             this.dataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellDoubleClick);
             // 
             // button3

@@ -47,9 +47,9 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string name, add, rc_type, bg, occ,mc_status,num;
-            long con = -1, aadh = -1;
-            int ag = -1;
+            string name, add, rc_type, bg, occ,mc_status,num,gdr;
+            long con = -1, aadh = -1, acard = -1;
+            int ag = -1,pd;
 
             name = aname.Text;
             add = address.Text;
@@ -73,7 +73,7 @@ namespace McsArogya
             {
                 mc_status = no.Text;
             }
-            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") )
+            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") || paid.Text.Equals("") || gender.Text.Equals("") || ar_card.Text.Equals("") )
             {
                 MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -83,22 +83,25 @@ namespace McsArogya
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
                 ag = int.Parse(age.Text);
-                if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals(""))
+                pd = int.Parse(paid.Text);
+                gdr = gender.Text;
+                acard = int.Parse(ar_card.Text);
+                if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals("") )
                 {
                     MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    addToDb(name, add, rc_type, bg, occ, mc_status, num, con,ag, aadh);
+                    addToDb(name, add, rc_type, bg, occ, mc_status, num, con,ag, aadh,gdr,pd,acard);
                 }
             }     
         }
 
-        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, string num, long con,int ag, long aadh)
+        private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, string num, long con,int ag, long aadh,string gdr,int pd,long acard)
         {
             int status = -1;
             DbAccess db = new DbAccess();
-            SqlCommand com = new SqlCommand("INSERT INTO members VALUES (@num,@name,@add,@con,@age,@aadh,@rc_type,@mc_status,@bg,@occ);");
+            SqlCommand com = new SqlCommand("INSERT INTO members VALUES (@num,@name,@add,@con,@age,@aadh,@rc_type,@mc_status,@bg,@occ,@gdr,@pd,DEFAULT,@ac);");
             com.Parameters.AddWithValue("@num", num);
             com.Parameters.AddWithValue("@name", name);
             com.Parameters.AddWithValue("@add", add);
@@ -109,6 +112,9 @@ namespace McsArogya
             com.Parameters.AddWithValue("@mc_status", mc_status);
             com.Parameters.AddWithValue("@bg", bg);
             com.Parameters.AddWithValue("@occ", occ);
+            com.Parameters.AddWithValue("@gdr", gdr);
+            com.Parameters.AddWithValue("@pd", pd);
+            com.Parameters.AddWithValue("@ac", acard);
             try
             {
                 status = db.executeQuery(com);
@@ -193,14 +199,21 @@ namespace McsArogya
                     aname.Text = dt.Rows[0]["name"].ToString();
                     address.Text = dt.Rows[0]["address"].ToString();
                     occupation.Text = dt.Rows[0]["occupation"].ToString();
+                    gender.Text = dt.Rows[0]["gender"].ToString();
                 }
                 else
                 {
                     aname.Text = "";
                     address.Text = "";
                     occupation.Text = "";
+                    gender.Text = "";
                 }
             }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

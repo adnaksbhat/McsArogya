@@ -36,7 +36,9 @@ namespace McsArogya
             mc.Text = viewmem.db_mc_status;
             b_group.Text = viewmem.db_blood_group;
             occupation.Text = viewmem.db_occuptaion;
-
+            gender.Text = viewmem.db_gender;
+            paid.Text = viewmem.db_paid.ToString();
+            ar_card.Text = viewmem.db_acard.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,6 +135,9 @@ namespace McsArogya
             yes.Visible = true;
             no.Visible = true;
             bloodGroup.Visible = true;
+            gender.ReadOnly = false;
+            paid.ReadOnly = false;
+            ar_card.ReadOnly = false;
 
             string rcard, medc;
             rcard = rc_type.Text;
@@ -169,9 +174,9 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string name, add, rc_type, bg, occ, mc_status,num;
-            long con = -1, aadh = -1;
-            int ag = -1;
+            string name, add, rc_type, bg, occ, mc_status,num,gdr;
+            long con = -1, aadh = -1,ar = -1;
+            int ag = -1, pd = -1;
 
             name = aname.Text;
             add = address.Text;
@@ -195,7 +200,7 @@ namespace McsArogya
             {
                 mc_status = no.Text;
             }
-            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals(""))
+            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") || gender.Text.Equals("") || paid.Text.Equals("") || ar_card.Text.Equals("") )
             {
                 MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -205,22 +210,25 @@ namespace McsArogya
                 con = long.Parse(contact.Text);
                 aadh = long.Parse(aadhar.Text);
                 ag = int.Parse(age.Text);
+                gdr = gender.Text;
+                ar = int.Parse(ar_card.Text);
+                pd = int.Parse(paid.Text);
                 if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals(""))
                 {
                     MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    editDb(name, add, rc_type, bg, occ, mc_status, num, con, ag, aadh);
+                    editDb(name, add, rc_type, bg, occ, mc_status, num, con, ag, aadh, gdr, pd, ar);
                 }
             }
         }
 
-        public void editDb(string name,string add,string rc_type,string bg,string occ,string mc_status, string num,long con,int ag,long aadh)
+        public void editDb(string name,string add,string rc_type,string bg,string occ,string mc_status, string num,long con,int ag,long aadh,string gdr, int pd, long acard)
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();
-            string query = "UPDATE members set name = @name, address = @add, contact = @con, age = @ag, aadhar = @aadh, rc_type = @rc_type, mc_status = @mc_status, blood_group = @bg, occupation = @occ WHERE anum = @anum";
+            string query = "UPDATE members set name = @name, address = @add, contact = @con, age = @ag, aadhar = @aadh, rc_type = @rc_type, mc_status = @mc_status, blood_group = @bg, occupation = @occ, gender = @gdr, paid = @pd, ar_card = @ac WHERE anum = @anum";
             SqlCommand comm = new SqlCommand(query);
             comm.Parameters.AddWithValue("@anum",num);
             comm.Parameters.AddWithValue("@name", name);
@@ -232,6 +240,9 @@ namespace McsArogya
             comm.Parameters.AddWithValue("@con", con);
             comm.Parameters.AddWithValue("@ag", ag);
             comm.Parameters.AddWithValue("@aadh", aadh);
+            comm.Parameters.AddWithValue("@gdr", gdr);
+            comm.Parameters.AddWithValue("@pd", pd);
+            comm.Parameters.AddWithValue("@ac", acard);
             try
             {
                 db.executeQuery(comm);
@@ -248,6 +259,9 @@ namespace McsArogya
 
         }
 
+        private void paid_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

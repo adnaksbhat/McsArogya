@@ -47,6 +47,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.gender = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // aname
@@ -163,7 +165,7 @@
             // contact
             // 
             this.contact.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.contact.Location = new System.Drawing.Point(389, 475);
+            this.contact.Location = new System.Drawing.Point(389, 522);
             this.contact.Margin = new System.Windows.Forms.Padding(4);
             this.contact.MaxLength = 10;
             this.contact.Name = "contact";
@@ -176,7 +178,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(95, 464);
+            this.label6.Location = new System.Drawing.Point(95, 511);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(107, 34);
@@ -186,7 +188,7 @@
             // ddesc
             // 
             this.ddesc.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ddesc.Location = new System.Drawing.Point(389, 535);
+            this.ddesc.Location = new System.Drawing.Point(389, 582);
             this.ddesc.Margin = new System.Windows.Forms.Padding(4);
             this.ddesc.Name = "ddesc";
             this.ddesc.Size = new System.Drawing.Size(253, 22);
@@ -197,7 +199,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(95, 524);
+            this.label7.Location = new System.Drawing.Point(95, 571);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(242, 34);
@@ -207,7 +209,7 @@
             // thospital
             // 
             this.thospital.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.thospital.Location = new System.Drawing.Point(389, 597);
+            this.thospital.Location = new System.Drawing.Point(389, 644);
             this.thospital.Margin = new System.Windows.Forms.Padding(4);
             this.thospital.Name = "thospital";
             this.thospital.Size = new System.Drawing.Size(253, 22);
@@ -218,7 +220,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(95, 586);
+            this.label8.Location = new System.Drawing.Point(95, 633);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(211, 34);
@@ -250,12 +252,36 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(95, 466);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(103, 34);
+            this.label11.TabIndex = 29;
+            this.label11.Text = "Gender";
+            // 
+            // gender
+            // 
+            this.gender.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.gender.Location = new System.Drawing.Point(389, 477);
+            this.gender.Margin = new System.Windows.Forms.Padding(4);
+            this.gender.MaxLength = 1;
+            this.gender.Name = "gender";
+            this.gender.Size = new System.Drawing.Size(55, 22);
+            this.gender.TabIndex = 28;
+            // 
             // arogyaClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1093, 750);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.gender);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.thospital);
@@ -306,5 +332,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox gender;
     }
 }

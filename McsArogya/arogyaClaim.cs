@@ -32,7 +32,7 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
             login.tcount--;
-            string s_name, s_add, s_dis, s_hosp, s_anum;
+            string s_name, s_add, s_dis, s_hosp, s_anum,gdr;
             int s_age = -1;
             long s_acard = -1, s_contact = -1;
 
@@ -40,14 +40,13 @@ namespace McsArogya
             s_add = add.Text;
             s_dis = ddesc.Text;
             s_hosp = thospital.Text;
-
             if ( s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals(""))
             {
                 MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if( age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals(""))
+                if( age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || gender.Text.Equals("") )  
                 {
                     MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -57,7 +56,8 @@ namespace McsArogya
                     s_anum = anum.Text;
                     s_acard = long.Parse(arcard.Text);
                     s_contact = long.Parse(contact.Text);
-                    addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp);
+                    gdr = gender.Text;
+                    addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr);
                 }
             }
 
@@ -66,10 +66,10 @@ namespace McsArogya
 
         }
 
-        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp)
+        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp,string gdr)
         {
             DbAccess db = new DbAccess();
-            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp);");
+            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp,@gdr);");
             com.Parameters.AddWithValue("@s_num",s_num);
             com.Parameters.AddWithValue("@s_name", s_name);
             com.Parameters.AddWithValue("@s_age", s_age);
@@ -78,6 +78,7 @@ namespace McsArogya
             com.Parameters.AddWithValue("@s_contact", s_contact);
             com.Parameters.AddWithValue("@s_dis", s_dis);
             com.Parameters.AddWithValue("@s_hosp", s_hosp);
+            com.Parameters.AddWithValue("@gdr", gdr);
             try
             {
                 int res = db.executeQuery(com);
@@ -172,6 +173,8 @@ namespace McsArogya
                         age.Text = dt.Rows[0]["age"].ToString();
                         add.Text = dt.Rows[0]["address"].ToString();
                         contact.Text = dt.Rows[0]["contact"].ToString();
+                        gender.Text = dt.Rows[0]["gender"].ToString();
+                        arcard.Text = dt.Rows[0]["ar_card"].ToString();
                     }
                     else
                     {

@@ -14,8 +14,8 @@ namespace McsArogya
     public partial class viewmem : Form
     {
         public static double db_contact;
-        public static long db_aadhar;
-        public static string db_anum,db_name, db_address, db_rc_type, db_mc_status, db_blood_group, db_occuptaion;
+        public static long db_aadhar,db_paid,db_acard;
+        public static string db_anum,db_name, db_address, db_rc_type, db_mc_status, db_blood_group, db_occuptaion,db_gender;
         public static int db_age;
         DataTable dt = new DataTable();
         public viewmem()
@@ -37,7 +37,7 @@ namespace McsArogya
             dt.Columns.Add("Occupation"); */
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query =  "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation from members; ";
+            string query =  "SELECT anum as Application_Number,ar_card as Arogya_Card_Number,name as Name,gender as Gender,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation,paid as Amount_Paid, insurance_amt as Insure_Amount from members; ";
             db.readDatathroughAdapter(query, dt);
 
         }
@@ -205,16 +205,18 @@ namespace McsArogya
             try
             {
                 db_anum = dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-                db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
-                db_address = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[3].Value);
-                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[4].Value);
-                db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[5].Value);
-                db_rc_type = dataGrid.Rows[e.RowIndex].Cells[6].Value.ToString();
-                db_mc_status = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
-                db_blood_group = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
-                db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
-
+                db_name = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
+                db_address = dataGrid.Rows[e.RowIndex].Cells[4].Value.ToString();
+                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[5].Value);
+                db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[6].Value);
+                db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[7].Value);
+                db_rc_type = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_mc_status = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
+                db_blood_group = dataGrid.Rows[e.RowIndex].Cells[10].Value.ToString();
+                db_occuptaion = dataGrid.Rows[e.RowIndex].Cells[11].Value.ToString();
+                db_gender = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
+                db_paid = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[12].Value);
+                db_acard = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[1].Value);
                 this.Hide();
                 memcell mc = new memcell();
                 mc.Show();
