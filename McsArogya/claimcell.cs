@@ -114,6 +114,7 @@ namespace McsArogya
             gender.ReadOnly = false;
 
             button5.Visible = true;
+            button6.Visible = true;
             button1.Visible = false;
             button3.Visible = false;
             button4.Visible = false;
@@ -191,5 +192,22 @@ namespace McsArogya
             }
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+            aname.ReadOnly = true;
+            age.ReadOnly = true;
+            arcard.ReadOnly = true;
+            add.ReadOnly = true;
+            contact.ReadOnly = true;
+            ddesc.ReadOnly = true;
+            thospital.ReadOnly = true;
+            gender.ReadOnly = true;
+
+            button5.Visible = false;
+            button6.Visible = false;
+            button1.Visible = true;
+            button3.Visible = true;
+            button4.Visible = true;
+        }
     }
 }

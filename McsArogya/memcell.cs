@@ -115,6 +115,7 @@ namespace McsArogya
         private void button4_Click(object sender, EventArgs e)
         {
             button5.Visible = true;
+            button6.Visible = true;
             button4.Visible = false;
             button1.Visible = false;
             button3.Visible = false;
@@ -262,6 +263,63 @@ namespace McsArogya
         private void paid_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            button5.Visible = false;
+            button6.Visible = false;
+            button4.Visible = true;
+            button1.Visible = true;
+            button3.Visible = true;
+
+            aname.ReadOnly = true;
+            contact.ReadOnly = true;
+            age.ReadOnly = true;
+            address.ReadOnly = true;
+            aadhar.ReadOnly = true;
+            rc_type.Visible = true;
+            mc.Visible = true;
+            b_group.Visible = true;
+            occupation.ReadOnly = true;
+            groupBox1.Visible = false;
+            groupBox2.Visible = false;
+            apl.Visible = false;
+            bpl.Visible = false;
+            yes.Visible = false;
+            no.Visible = false;
+            bloodGroup.Visible = false;
+            gender.ReadOnly = true;
+            paid.ReadOnly = true;
+            ar_card.ReadOnly = true;
+
+            /*
+            string rcard, medc;
+            rcard = rc_type.Text;
+            medc = mc.Text;
+
+            if (rcard.Equals("APL"))
+            {
+                apl.Checked = true;
+            }
+            else
+            {
+                bpl.Checked = true;
+            }
+
+            if (medc.Equals("yes"))
+            {
+                yes.Checked = true;
+            }
+            else
+            {
+                no.Checked = true;
+            }
+
+            string bdgrp;
+            bdgrp = b_group.Text;
+            bloodGroup.SelectedItem = bdgrp;
+            */
         }
     }
 }

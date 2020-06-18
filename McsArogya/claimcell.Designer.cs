@@ -54,6 +54,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.gender = new System.Windows.Forms.TextBox();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -317,12 +318,26 @@
             this.gender.Size = new System.Drawing.Size(55, 22);
             this.gender.TabIndex = 44;
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.OrangeRed;
+            this.button6.Location = new System.Drawing.Point(784, 197);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(296, 77);
+            this.button6.TabIndex = 46;
+            this.button6.Text = "Cancel";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // claimcell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1093, 750);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.gender);
             this.Controls.Add(this.button5);
@@ -384,5 +399,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox gender;
+        private System.Windows.Forms.Button button6;
     }
 }

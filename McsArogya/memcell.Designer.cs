@@ -69,6 +69,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ar_card = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -519,12 +520,26 @@
             this.label13.TabIndex = 59;
             this.label13.Text = "Arogya Card Number";
             // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.OrangeRed;
+            this.button6.Location = new System.Drawing.Point(784, 194);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(296, 77);
+            this.button6.TabIndex = 61;
+            this.button6.Text = "Cancel";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Visible = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // memcell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1109, 863);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.ar_card);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.paid);
@@ -615,5 +630,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox ar_card;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button button6;
     }
 }
