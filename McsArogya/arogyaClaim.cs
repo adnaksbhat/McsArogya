@@ -34,7 +34,7 @@ namespace McsArogya
             login.tcount--;
             string s_name, s_add, s_dis, s_hosp, s_anum,gdr;
             int s_age = -1;
-            long s_acard = -1, s_contact = -1;
+            long s_acard = -1, s_contact = -1,s_aadhar = -1;
 
             s_name = aname.Text;
             s_add = add.Text;
@@ -46,7 +46,7 @@ namespace McsArogya
             }
             else
             {
-                if( age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || gender.Text.Equals("") )  
+                if( age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || gender.Text.Equals("") || aadhar.Text.Equals("") )  
                 {
                     MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -55,9 +55,10 @@ namespace McsArogya
                     s_age = int.Parse(age.Text);
                     s_anum = anum.Text;
                     s_acard = long.Parse(arcard.Text);
+                    s_aadhar = long.Parse(aadhar.Text);
                     s_contact = long.Parse(contact.Text);
                     gdr = gender.Text;
-                    addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr);
+                    addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr,s_aadhar);
                 }
             }
 
@@ -66,10 +67,10 @@ namespace McsArogya
 
         }
 
-        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp,string gdr)
+        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp,string gdr,long s_aadhar)
         {
             DbAccess db = new DbAccess();
-            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp,@gdr);");
+            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp,@gdr,@aadh);");
             com.Parameters.AddWithValue("@s_num",s_num);
             com.Parameters.AddWithValue("@s_name", s_name);
             com.Parameters.AddWithValue("@s_age", s_age);
@@ -79,6 +80,7 @@ namespace McsArogya
             com.Parameters.AddWithValue("@s_dis", s_dis);
             com.Parameters.AddWithValue("@s_hosp", s_hosp);
             com.Parameters.AddWithValue("@gdr", gdr);
+            com.Parameters.AddWithValue("@aadh", s_aadhar);
             try
             {
                 int res = db.executeQuery(com);
@@ -110,6 +112,8 @@ namespace McsArogya
             contact.Text = "";
             ddesc.Text = "";
             thospital.Text = "";
+            gender.Text = "";
+            aadhar.Text = "";
         }
         private void age_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -176,6 +180,7 @@ namespace McsArogya
                         contact.Text = dt.Rows[0]["contact"].ToString();
                         gender.Text = dt.Rows[0]["gender"].ToString();
                         arcard.Text = dt.Rows[0]["ar_card"].ToString();
+                        aadhar.Text = dt.Rows[0]["aadhar"].ToString();
                     }
                     else
                     {

@@ -49,6 +49,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.gender = new System.Windows.Forms.TextBox();
+            this.aadhar = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // aname
@@ -76,7 +78,7 @@
             // age
             // 
             this.age.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.age.Location = new System.Drawing.Point(389, 252);
+            this.age.Location = new System.Drawing.Point(389, 284);
             this.age.Margin = new System.Windows.Forms.Padding(4);
             this.age.MaxLength = 3;
             this.age.Name = "age";
@@ -89,7 +91,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(95, 241);
+            this.label2.Location = new System.Drawing.Point(95, 273);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 34);
@@ -122,7 +124,7 @@
             // arcard
             // 
             this.arcard.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.arcard.Location = new System.Drawing.Point(389, 310);
+            this.arcard.Location = new System.Drawing.Point(389, 237);
             this.arcard.Margin = new System.Windows.Forms.Padding(4);
             this.arcard.Name = "arcard";
             this.arcard.ReadOnly = true;
@@ -135,7 +137,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(95, 299);
+            this.label4.Location = new System.Drawing.Point(95, 226);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(260, 34);
@@ -281,12 +283,36 @@
             this.gender.TabIndex = 6;
             this.gender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gender_KeyPress);
             // 
+            // aadhar
+            // 
+            this.aadhar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.aadhar.Location = new System.Drawing.Point(389, 327);
+            this.aadhar.Margin = new System.Windows.Forms.Padding(4);
+            this.aadhar.MaxLength = 16;
+            this.aadhar.Name = "aadhar";
+            this.aadhar.Size = new System.Drawing.Size(253, 22);
+            this.aadhar.TabIndex = 30;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(98, 315);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(208, 34);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Aadhar Number";
+            // 
             // arogyaClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1093, 750);
+            this.Controls.Add(this.aadhar);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.gender);
             this.Controls.Add(this.button1);
@@ -341,5 +367,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox gender;
+        private System.Windows.Forms.TextBox aadhar;
+        private System.Windows.Forms.Label label9;
     }
 }

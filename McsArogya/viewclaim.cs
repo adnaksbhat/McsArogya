@@ -14,7 +14,8 @@ namespace McsArogya
     public partial class viewclaim : Form
     {
         public static int db_age;
-        public static double db_a_card, db_contact;
+        public static double  db_contact;
+        public static long db_a_card, db_aadhar;
         public static string db_address,db_name, db_d_desc, db_hosp_name, db_anum,db_gender;
         DataTable dt = new DataTable();
         public viewclaim()
@@ -26,7 +27,7 @@ namespace McsArogya
         {
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
+            string query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
             db.readDatathroughAdapter(query, dt);
         }
 
@@ -96,12 +97,13 @@ namespace McsArogya
                 db_anum = dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
                 db_name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
                 db_age = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[2].Value);
-                db_address = dataGrid.Rows[e.RowIndex].Cells[4].Value.ToString();
-                db_a_card = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[5].Value);
-                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[6].Value);
-                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[7].Value.ToString();
-                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_address = dataGrid.Rows[e.RowIndex].Cells[5].Value.ToString();
+                db_a_card = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[6].Value);
+                db_contact = Convert.ToDouble(dataGrid.Rows[e.RowIndex].Cells[7].Value);
+                db_d_desc = dataGrid.Rows[e.RowIndex].Cells[8].Value.ToString();
+                db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
                 db_gender = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
+                db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[4].Value);
 
                 this.Hide();
                 claimcell cc = new claimcell();

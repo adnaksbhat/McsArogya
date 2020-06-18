@@ -179,6 +179,9 @@ namespace McsArogya
             aadhar.Text = "";
             occupation.Text = "";
             age.Text = "";
+            gender.Text = "";
+            paid.Text = "";
+            ar_card.Text = "";
             apl.Checked = true;
             yes.Checked = true;
             bloodGroup.SelectedIndex = 0;

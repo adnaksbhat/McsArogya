@@ -35,6 +35,7 @@ namespace McsArogya
             ddesc.Text = viewclaim.db_d_desc;
             thospital.Text = viewclaim.db_hosp_name;
             gender.Text = viewclaim.db_gender;
+            aadhar.Text = viewclaim.db_aadhar.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -112,6 +113,7 @@ namespace McsArogya
             ddesc.ReadOnly = false;
             thospital.ReadOnly = false;
             gender.ReadOnly = false;
+            aadhar.ReadOnly = false;
 
             button5.Visible = true;
             button6.Visible = true;
@@ -131,7 +133,7 @@ namespace McsArogya
             login.tcount--;
             string s_anum,s_name, s_add, s_dis, s_hosp,gdr;
             int s_age = -1;
-            long s_acard = -1, s_contact = -1;
+            long s_acard = -1, s_contact = -1, s_aadhar = -1;
 
             s_name = aname.Text;
             s_add = add.Text;
@@ -145,27 +147,28 @@ namespace McsArogya
             }
             else
             {
-                if (age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals(""))
+                if (age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals(""))
                 {
                     MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
+                    s_aadhar = long.Parse(aadhar.Text);
                     s_age = int.Parse(age.Text);
                     s_anum = anum.Text;
                     s_acard = long.Parse(arcard.Text);
                     s_contact = long.Parse(contact.Text);
-                    updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp,gdr);
+                    updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp,gdr,s_aadhar);
                 }
             }
 
         }
 
-        private void updateDb(string s_name, int s_age, string s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp,string gdr)
+        private void updateDb(string s_name, int s_age, string s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp,string gdr,long s_aadhar)
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();
-            string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname,gender = @gdr WHERE anum = @anum";
+            string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname,gender = @gdr,aadhar = @adhr WHERE anum = @anum";
             SqlCommand comm = new SqlCommand(query);
             comm.Parameters.AddWithValue("@name", s_name);
             comm.Parameters.AddWithValue("@age", s_age);
@@ -176,6 +179,7 @@ namespace McsArogya
             comm.Parameters.AddWithValue("@hname", s_hosp);
             comm.Parameters.AddWithValue("@anum", s_anum);
             comm.Parameters.AddWithValue("@gdr", gdr);
+            comm.Parameters.AddWithValue("@adhr", s_aadhar);
 
             try
             {
