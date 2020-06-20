@@ -62,5 +62,11 @@ namespace McsArogya
                 System.Windows.Forms.Application.Exit();
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            mauth ma = new mauth();
+            ma.ShowDialog();
+        }
     }
 }

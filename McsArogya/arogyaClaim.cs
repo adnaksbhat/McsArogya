@@ -33,44 +33,49 @@ namespace McsArogya
             }
             login.tcount--;
             string s_name, s_add, s_dis, s_hosp, s_anum,gdr;
-            int s_age = -1;
+            int s_age = -1,s_amt = -1;
             long s_acard = -1, s_contact = -1,s_aadhar = -1;
 
             s_name = aname.Text;
             s_add = add.Text;
             s_dis = ddesc.Text;
             s_hosp = thospital.Text;
-            if ( s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals(""))
+
+            if(ddesc.Text.Equals("") && dinfo.Text.Equals(""))
             {
-                MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please input disease information", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if( age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || gender.Text.Equals("") || aadhar.Text.Equals("") )  
+                if (s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals(""))
                 {
                     MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    s_age = int.Parse(age.Text);
-                    s_anum = anum.Text;
-                    s_acard = long.Parse(arcard.Text);
-                    s_aadhar = long.Parse(aadhar.Text);
-                    s_contact = long.Parse(contact.Text);
-                    gdr = gender.Text;
-                    addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr,s_aadhar);
+                    if (amount.Text.Equals("") | age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || gender.Text.Equals("") || aadhar.Text.Equals(""))
+                    {
+                        MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        s_amt = int.Parse(amount.Text);
+                        s_age = int.Parse(age.Text);
+                        s_anum = anum.Text;
+                        s_acard = long.Parse(arcard.Text);
+                        s_aadhar = long.Parse(aadhar.Text);
+                        s_contact = long.Parse(contact.Text);
+                        gdr = gender.Text;
+                        addToDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr, s_aadhar,s_amt);
+                    }
                 }
             }
-
-
-
-
         }
 
-        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp,string gdr,long s_aadhar)
+        private void addToDb(string s_name,int s_age,string s_num,long s_acard,string s_add,long s_contact,string s_dis,string s_hosp,string gdr,long s_aadhar,int s_amt)
         {
             DbAccess db = new DbAccess();
-            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp,@gdr,@aadh);");
+            SqlCommand com = new SqlCommand("INSERT INTO claimants VALUES(@s_num,@s_name,@s_age,@s_add,@s_acard,@s_contact,@s_dis,@s_hosp,@gdr,@aadh,@amt);");
             com.Parameters.AddWithValue("@s_num",s_num);
             com.Parameters.AddWithValue("@s_name", s_name);
             com.Parameters.AddWithValue("@s_age", s_age);
@@ -81,6 +86,7 @@ namespace McsArogya
             com.Parameters.AddWithValue("@s_hosp", s_hosp);
             com.Parameters.AddWithValue("@gdr", gdr);
             com.Parameters.AddWithValue("@aadh", s_aadhar);
+            com.Parameters.AddWithValue("@amt", s_amt);
             try
             {
                 int res = db.executeQuery(com);
@@ -210,6 +216,13 @@ namespace McsArogya
             {
                 e.Handled = true;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            disease ds = new disease();
+            //ds.TopMost = true;
+            ds.ShowDialog();
         }
     }
 }
