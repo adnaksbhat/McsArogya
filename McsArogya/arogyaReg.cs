@@ -27,6 +27,8 @@ namespace McsArogya
             bloodGroup.SelectedIndex = 0;
             groupBox1.TabStop = false;
             groupBox2.TabStop = false;
+            apl.Checked = false;
+            yes.Checked = false;
             if (login.tcount < 0)
             {
                 MessageBox.Show("Software is in protected mode", "MCSArogya", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -58,49 +60,61 @@ namespace McsArogya
             bg = bloodGroup.Text;
             occ = occupation.Text;
 
-            if (apl.Checked)
+            if(apl.Checked == false && bpl.Checked == false)
             {
-                rc_type = apl.Text;
+                MessageBox.Show("Please select ration card type", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(yes.Checked == false && no.Checked == false)
+            {
+                MessageBox.Show("Please select Medical certificate status", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                rc_type = bpl.Text;
-            }
-
-            if (yes.Checked)
-            {
-                mc_status = yes.Text;
-            }
-            else
-            {
-                mc_status = no.Text;
-            }
-            if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") || paid.Text.Equals("") || gender.Text.Equals("") || ar_card.Text.Equals("") )
-            {
-                MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {   
-                num = anum.Text;
-                con = long.Parse(contact.Text);
-                aadh = long.Parse(aadhar.Text);
-                ag = int.Parse(age.Text);
-                pd = int.Parse(paid.Text);
-                gdr = gender.Text;
-                acard = int.Parse(ar_card.Text);
-                if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals("") )
+                if (apl.Checked)
                 {
-                    MessageBox.Show("Empty field detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else if(bg.Equals("--"))
-                {
-                    MessageBox.Show("Please select the blood group", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rc_type = apl.Text;
                 }
                 else
                 {
-                    addToDb(name, add, rc_type, bg, occ, mc_status, num, con,ag, aadh,gdr,pd,acard);
+                    rc_type = bpl.Text;
                 }
-            }     
+
+                if (yes.Checked)
+                {
+                    mc_status = yes.Text;
+                }
+                else
+                {
+                    mc_status = no.Text;
+                }
+                if (anum.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || age.Text.Equals("") || paid.Text.Equals("") || gender.Text.Equals("") || ar_card.Text.Equals(""))
+                {
+                    MessageBox.Show("Empty Field Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    num = anum.Text;
+                    con = long.Parse(contact.Text);
+                    aadh = long.Parse(aadhar.Text);
+                    ag = int.Parse(age.Text);
+                    pd = int.Parse(paid.Text);
+                    gdr = gender.Text;
+                    acard = int.Parse(ar_card.Text);
+                    if (name.Equals("") || add.Equals("") || rc_type.Equals("") || bg.Equals("") || occ.Equals("") || mc_status.Equals(""))
+                    {
+                        MessageBox.Show("Empty field detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (bg.Equals("--"))
+                    {
+                        MessageBox.Show("Please select the blood group", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        addToDb(name, add, rc_type, bg, occ, mc_status, num, con, ag, aadh, gdr, pd, acard);
+                    }
+                }
+            }
+                 
         }
 
         private void addToDb(string name, string add, string rc_type, string bg, string occ, string mc_status, string num, long con,int ag, long aadh,string gdr,int pd,long acard)

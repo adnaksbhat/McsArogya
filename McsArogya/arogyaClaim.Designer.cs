@@ -59,7 +59,6 @@
             this.aname.Location = new System.Drawing.Point(389, 185);
             this.aname.Margin = new System.Windows.Forms.Padding(4);
             this.aname.Name = "aname";
-            this.aname.ReadOnly = true;
             this.aname.Size = new System.Drawing.Size(253, 22);
             this.aname.TabIndex = 2;
             // 
@@ -127,7 +126,6 @@
             this.arcard.Location = new System.Drawing.Point(389, 237);
             this.arcard.Margin = new System.Windows.Forms.Padding(4);
             this.arcard.Name = "arcard";
-            this.arcard.ReadOnly = true;
             this.arcard.Size = new System.Drawing.Size(253, 22);
             this.arcard.TabIndex = 4;
             this.arcard.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.arcard_KeyPress);
@@ -151,7 +149,6 @@
             this.add.Margin = new System.Windows.Forms.Padding(4);
             this.add.Multiline = true;
             this.add.Name = "add";
-            this.add.ReadOnly = true;
             this.add.Size = new System.Drawing.Size(253, 88);
             this.add.TabIndex = 5;
             this.add.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.add_KeyPress);
@@ -175,7 +172,6 @@
             this.contact.Margin = new System.Windows.Forms.Padding(4);
             this.contact.MaxLength = 10;
             this.contact.Name = "contact";
-            this.contact.ReadOnly = true;
             this.contact.Size = new System.Drawing.Size(253, 22);
             this.contact.TabIndex = 7;
             this.contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.contact_KeyPress);
@@ -278,7 +274,6 @@
             this.gender.Margin = new System.Windows.Forms.Padding(4);
             this.gender.MaxLength = 1;
             this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
             this.gender.Size = new System.Drawing.Size(55, 22);
             this.gender.TabIndex = 6;
             this.gender.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gender_KeyPress);

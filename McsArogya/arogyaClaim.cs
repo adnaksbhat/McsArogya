@@ -175,7 +175,7 @@ namespace McsArogya
                     {
                         anum.Text = dt.Rows[0]["anum"].ToString();
                         aname.Text = dt.Rows[0]["name"].ToString();
-                        age.Text = dt.Rows[0]["age"].ToString();
+                        //age.Text = dt.Rows[0]["age"].ToString();
                         add.Text = dt.Rows[0]["address"].ToString();
                         contact.Text = dt.Rows[0]["contact"].ToString();
                         gender.Text = dt.Rows[0]["gender"].ToString();
