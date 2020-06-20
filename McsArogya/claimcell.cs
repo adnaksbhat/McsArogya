@@ -36,6 +36,7 @@ namespace McsArogya
             thospital.Text = viewclaim.db_hosp_name;
             gender.Text = viewclaim.db_gender;
             aadhar.Text = viewclaim.db_aadhar.ToString();
+            amount.Text = viewclaim.db_amt.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,16 +111,18 @@ namespace McsArogya
             arcard.ReadOnly = false;
             add.ReadOnly = false;
             contact.ReadOnly = false;
-            ddesc.ReadOnly = false;
             thospital.ReadOnly = false;
             gender.ReadOnly = false;
             aadhar.ReadOnly = false;
+            amount.ReadOnly = false;
 
             button5.Visible = true;
             button6.Visible = true;
             button1.Visible = false;
             button3.Visible = false;
             button4.Visible = false;
+            button7.Visible = true;
+            dinfo.Visible = true;
 
         }
 
@@ -132,7 +135,7 @@ namespace McsArogya
             }
             login.tcount--;
             string s_anum,s_name, s_add, s_dis, s_hosp,gdr;
-            int s_age = -1;
+            int s_age = -1,s_amt = -1;
             long s_acard = -1, s_contact = -1, s_aadhar = -1;
 
             s_name = aname.Text;
@@ -141,34 +144,43 @@ namespace McsArogya
             s_hosp = thospital.Text;
             gdr = gender.Text;
 
-            if (s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals("") || gdr.Equals(""))
+            if (ddesc.Text.Equals("") && dinfo.Text.Equals(""))
             {
-                MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please input disease information", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals(""))
+                if (s_name.Equals("") || s_add.Equals("") || s_dis.Equals("") || s_hosp.Equals("") || gdr.Equals(""))
                 {
                     MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    s_aadhar = long.Parse(aadhar.Text);
-                    s_age = int.Parse(age.Text);
-                    s_anum = anum.Text;
-                    s_acard = long.Parse(arcard.Text);
-                    s_contact = long.Parse(contact.Text);
-                    updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp,gdr,s_aadhar);
+                    if (age.Text.Equals("") || anum.Text.Equals("") || arcard.Text.Equals("") || contact.Text.Equals("") || aadhar.Text.Equals("") || amount.Text.Equals(""))
+                    {
+                        MessageBox.Show("Empty Fields Detected", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        s_aadhar = long.Parse(aadhar.Text);
+                        s_age = int.Parse(age.Text);
+                        s_anum = anum.Text;
+                        s_acard = long.Parse(arcard.Text);
+                        s_contact = long.Parse(contact.Text);
+                        s_amt = int.Parse(amount.Text);
+                        updateDb(s_name, s_age, s_anum, s_acard, s_add, s_contact, s_dis, s_hosp, gdr, s_aadhar, s_amt);
+                    }
                 }
             }
+           
 
         }
 
-        private void updateDb(string s_name, int s_age, string s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp,string gdr,long s_aadhar)
+        private void updateDb(string s_name, int s_age, string s_anum, long s_acard, string s_add, long s_contact, string s_dis, string s_hosp,string gdr,long s_aadhar,int s_amt)
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();
-            string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname,gender = @gdr,aadhar = @adhr WHERE anum = @anum";
+            string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname,gender = @gdr,aadhar = @adhr,amount = @amt WHERE anum = @anum";
             SqlCommand comm = new SqlCommand(query);
             comm.Parameters.AddWithValue("@name", s_name);
             comm.Parameters.AddWithValue("@age", s_age);
@@ -180,7 +192,7 @@ namespace McsArogya
             comm.Parameters.AddWithValue("@anum", s_anum);
             comm.Parameters.AddWithValue("@gdr", gdr);
             comm.Parameters.AddWithValue("@adhr", s_aadhar);
-
+            comm.Parameters.AddWithValue("@amt", s_amt);
             try
             {
                 db.executeQuery(comm);
@@ -212,6 +224,12 @@ namespace McsArogya
             button1.Visible = true;
             button3.Visible = true;
             button4.Visible = true;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            disease ds = new disease("claimcell");
+            ds.ShowDialog();
         }
     }
 }

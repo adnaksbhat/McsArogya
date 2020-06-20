@@ -220,7 +220,7 @@ namespace McsArogya
 
         private void button3_Click(object sender, EventArgs e)
         {
-            disease ds = new disease();
+            disease ds = new disease("arogyaClaim");
             //ds.TopMost = true;
             ds.ShowDialog();
         }

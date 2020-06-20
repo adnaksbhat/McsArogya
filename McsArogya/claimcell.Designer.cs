@@ -57,6 +57,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.aadhar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.amount = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dinfo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -85,7 +90,7 @@
             // 
             // thospital
             // 
-            this.thospital.Location = new System.Drawing.Point(413, 626);
+            this.thospital.Location = new System.Drawing.Point(413, 799);
             this.thospital.Margin = new System.Windows.Forms.Padding(4);
             this.thospital.Name = "thospital";
             this.thospital.ReadOnly = true;
@@ -96,7 +101,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(104, 615);
+            this.label8.Location = new System.Drawing.Point(104, 788);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(211, 34);
@@ -105,23 +110,24 @@
             // 
             // ddesc
             // 
-            this.ddesc.Location = new System.Drawing.Point(413, 573);
+            this.ddesc.Location = new System.Drawing.Point(413, 608);
             this.ddesc.Margin = new System.Windows.Forms.Padding(4);
+            this.ddesc.Multiline = true;
             this.ddesc.Name = "ddesc";
             this.ddesc.ReadOnly = true;
-            this.ddesc.Size = new System.Drawing.Size(253, 22);
+            this.ddesc.Size = new System.Drawing.Size(253, 68);
             this.ddesc.TabIndex = 36;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(104, 562);
+            this.label7.Location = new System.Drawing.Point(104, 597);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(242, 34);
+            this.label7.Size = new System.Drawing.Size(184, 34);
             this.label7.TabIndex = 35;
-            this.label7.Text = "Disease description";
+            this.label7.Text = "Disease Name";
             // 
             // contact
             // 
@@ -312,7 +318,7 @@
             // gender
             // 
             this.gender.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gender.Location = new System.Drawing.Point(413, 472);
+            this.gender.Location = new System.Drawing.Point(413, 473);
             this.gender.Margin = new System.Windows.Forms.Padding(4);
             this.gender.MaxLength = 1;
             this.gender.Name = "gender";
@@ -349,19 +355,82 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(104, 303);
+            this.label9.Location = new System.Drawing.Point(104, 304);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(208, 34);
             this.label9.TabIndex = 48;
             this.label9.Text = "Aadhar Number";
             // 
+            // amount
+            // 
+            this.amount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.amount.Location = new System.Drawing.Point(413, 757);
+            this.amount.Margin = new System.Windows.Forms.Padding(4);
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.Size = new System.Drawing.Size(253, 22);
+            this.amount.TabIndex = 51;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(104, 745);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(112, 34);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Amount";
+            // 
+            // dinfo
+            // 
+            this.dinfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dinfo.Location = new System.Drawing.Point(413, 684);
+            this.dinfo.Margin = new System.Windows.Forms.Padding(4);
+            this.dinfo.Multiline = true;
+            this.dinfo.Name = "dinfo";
+            this.dinfo.ReadOnly = true;
+            this.dinfo.Size = new System.Drawing.Size(253, 58);
+            this.dinfo.TabIndex = 49;
+            this.dinfo.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(104, 673);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(226, 34);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Disease price info";
+            this.label10.Visible = false;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(413, 558);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(129, 34);
+            this.button7.TabIndex = 53;
+            this.button7.Text = "Select Disease";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Visible = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // claimcell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(1093, 750);
+            this.ClientSize = new System.Drawing.Size(1113, 850);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.amount);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dinfo);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.aadhar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button6);
@@ -405,7 +474,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox thospital;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox ddesc;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox contact;
         private System.Windows.Forms.Label label6;
@@ -429,5 +497,11 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox aadhar;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox dinfo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button7;
+        public System.Windows.Forms.TextBox ddesc;
+        public System.Windows.Forms.TextBox amount;
     }
 }

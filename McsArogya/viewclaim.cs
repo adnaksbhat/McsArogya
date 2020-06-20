@@ -13,7 +13,7 @@ namespace McsArogya
 {
     public partial class viewclaim : Form
     {
-        public static int db_age;
+        public static int db_age,db_amt;
         public static double  db_contact;
         public static long db_a_card, db_aadhar;
         public static string db_address,db_name, db_d_desc, db_hosp_name, db_anum,db_gender;
@@ -27,7 +27,7 @@ namespace McsArogya
         {
             dataGrid.DataSource = dt;
             DbAccess db = new DbAccess();
-            string query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name from claimants; ";
+            string query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name,amount as Claim_Amount from claimants; ";
             db.readDatathroughAdapter(query, dt);
         }
 
@@ -104,6 +104,7 @@ namespace McsArogya
                 db_hosp_name = dataGrid.Rows[e.RowIndex].Cells[9].Value.ToString();
                 db_gender = dataGrid.Rows[e.RowIndex].Cells[3].Value.ToString();
                 db_aadhar = Convert.ToInt64(dataGrid.Rows[e.RowIndex].Cells[4].Value);
+                db_amt = Convert.ToInt32(dataGrid.Rows[e.RowIndex].Cells[10].Value);
 
                 this.Hide();
                 claimcell cc = new claimcell();

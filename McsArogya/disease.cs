@@ -12,11 +12,16 @@ namespace McsArogya
     public partial class disease : Form
     {
         DataTable dt;
+        string ctxt;
         public disease()
         {
             InitializeComponent();
         }
-
+        public disease(string c)
+        {
+            InitializeComponent();
+            this.ctxt = c;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -71,9 +76,20 @@ namespace McsArogya
             info = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
 
             this.Hide();
-            arogyaClaim ac = (arogyaClaim)Application.OpenForms["arogyaClaim"];
-            ac.ddesc.Text = name;
-            ac.dinfo.Text = info;
+
+            if(ctxt == "arogyaClaim")
+            {
+                arogyaClaim ac = (arogyaClaim)Application.OpenForms["arogyaClaim"];
+                ac.ddesc.Text = name;
+                ac.dinfo.Text = info;
+            }
+            else if(ctxt == "claimcell")
+            {
+                claimcell c = (claimcell)Application.OpenForms["claimcell"];
+                c.ddesc.Text = name;
+                c.dinfo.Text = info;
+                c.amount.Text = "";
+            }
         }
     }
 }
