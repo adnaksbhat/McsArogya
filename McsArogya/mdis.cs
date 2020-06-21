@@ -9,38 +9,22 @@ using System.Windows.Forms;
 
 namespace McsArogya
 {
-    public partial class disease : Form
+    public partial class mdis : Form
     {
         DataTable dt;
-        string ctxt;
-        public disease()
+        public mdis()
         {
             InitializeComponent();
         }
-        public disease(string c)
-        {
-            InitializeComponent();
-            this.ctxt = c;
-        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
 
-        private void disease_Load(object sender, EventArgs e)
+        public void reload()
         {
-            dt = new DataTable();
-            dataGrid.DataSource = dt;
-            DbAccess db = new DbAccess();
-            string query = "SELECT id as ID, name as Disease_Name, description as Description from disease; ";
-            db.readDatathroughAdapter(query, dt);
-            DataGridViewColumn dc = dataGrid.Columns[0];
-            dc.Width = 50;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            search();
+            this.reload();
         }
 
         private void search()
@@ -61,32 +45,46 @@ namespace McsArogya
             dc.Width = 50;
         }
 
+        private void mdis_Load(object sender, EventArgs e)
+        {
+            dt = new DataTable();
+            dataGrid.DataSource = dt;
+            DbAccess db = new DbAccess();
+            string query = "SELECT id as ID, name as Disease_Name, description as Description from disease; ";
+            db.readDatathroughAdapter(query, dt);
+            DataGridViewColumn dc = dataGrid.Columns[0];
+            dc.Width = 50;
+        }
+
         private void sbn_KeyDown(object sender, KeyEventArgs e)
         {
-                search();
+            search();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            search();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            addDis ad = new addDis();
+            ad.ShowDialog();
         }
 
         private void dataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string name, info;
+            int id;
             name = dataGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
             info = dataGrid.Rows[e.RowIndex].Cells[2].Value.ToString();
+            id = int.Parse(dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-            this.Hide();
-
-            if(ctxt == "arogyaClaim")
-            {
-                arogyaClaim ac = (arogyaClaim)Application.OpenForms["arogyaClaim"];
-                ac.ddesc.Text = name;
-                ac.dinfo.Text = info;
-            }
-            else if(ctxt == "claimcell")
-            {
-                claimcell c = (claimcell)Application.OpenForms["claimcell"];
-                c.ddesc.Text = name;
-                c.dinfo.Text = info;
-                c.amount.Text = "";
-            }
+            System.Console.WriteLine(name);
+            System.Console.WriteLine(info);
+            System.Console.WriteLine(id);
+            disCell ds = new disCell(name,info,id);
+            ds.ShowDialog();
         }
     }
 }

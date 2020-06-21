@@ -25,5 +25,11 @@ namespace McsArogya
         {
             this.Hide();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            mdis md = new mdis();
+            md.ShowDialog();        
+        }
     }
 }

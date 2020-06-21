@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addDis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addDis.Designer.cs">
+      <DependentUpon>addDis.cs</DependentUpon>
+    </Compile>
     <Compile Include="arogyaClaim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
       <DependentUpon>claimcell.cs</DependentUpon>
     </Compile>
     <Compile Include="DbAccess.cs" />
+    <Compile Include="disCell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="disCell.Designer.cs">
+      <DependentUpon>disCell.cs</DependentUpon>
+    </Compile>
     <Compile Include="disease.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     <Compile Include="Mcs-Arogya.Designer.cs">
       <DependentUpon>Mcs-Arogya.cs</DependentUpon>
     </Compile>
+    <Compile Include="mdis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mdis.Designer.cs">
+      <DependentUpon>mdis.cs</DependentUpon>
+    </Compile>
     <Compile Include="memcell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +159,9 @@
     <Compile Include="viewmem.Designer.cs">
       <DependentUpon>viewmem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="addDis.resx">
+      <DependentUpon>addDis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="arogyaClaim.resx">
       <DependentUpon>arogyaClaim.cs</DependentUpon>
     </EmbeddedResource>
@@ -149,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="claimcell.resx">
       <DependentUpon>claimcell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="disCell.resx">
+      <DependentUpon>disCell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="disease.resx">
       <DependentUpon>disease.cs</DependentUpon>
@@ -167,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mcs-Arogya.resx">
       <DependentUpon>Mcs-Arogya.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mdis.resx">
+      <DependentUpon>mdis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="memcell.resx">
       <DependentUpon>memcell.cs</DependentUpon>
