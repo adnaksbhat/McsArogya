@@ -87,11 +87,12 @@ namespace McsArogya
             com.Parameters.AddWithValue("@gdr", gdr);
             com.Parameters.AddWithValue("@aadh", s_aadhar);
             com.Parameters.AddWithValue("@amt", s_amt);
+            SqlCommand com2 = new SqlCommand("UPDATE members set insurance_amt = insurance_amt - "+s_amt+" where anum = '"+s_num+"';");
             try
             {
                 int res = db.executeQuery(com);
-
-                if (res > 0)
+                int res2 = db.executeQuery(com2);
+                if (res > 0 && res2 > 0)
                 {
                     MessageBox.Show("Record Added", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     clearAll();
@@ -120,6 +121,8 @@ namespace McsArogya
             thospital.Text = "";
             gender.Text = "";
             aadhar.Text = "";
+            dinfo.Text = "";
+            amount.Text = "";
         }
         private void age_KeyPress(object sender, KeyPressEventArgs e)
         {

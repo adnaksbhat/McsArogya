@@ -93,8 +93,10 @@ namespace McsArogya
             {
                 DbAccess db = new DbAccess();
                 SqlCommand comm = new SqlCommand("DELETE FROM CLAIMANTS WHERE anum = '" + viewclaim.db_anum+"';");
+                SqlCommand com2 = new SqlCommand("UPDATE members set insurance_amt = insurance_amt + " + int.Parse(amount.Text.ToString()) + " where anum = '" + anum.Text.ToString() + "';");
                 int res = db.executeQuery(comm);
-                if (res > 0)
+                int res2 = db.executeQuery(com2);
+                if (res > 0 && res2 > 0)
                 {
                     MessageBox.Show("Application number : " + viewclaim.db_anum + " removed from database", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -180,8 +182,16 @@ namespace McsArogya
         {
             DbAccess db = new DbAccess();
             DataTable dt = new DataTable();
+            int final_amt;
             string query = "UPDATE claimants set name = @name, age = @age, address = @add, a_card = @ac, contact = @con, d_desc = @ddes, hosp_name = @hname,gender = @gdr,aadhar = @adhr,amount = @amt WHERE anum = @anum";
             SqlCommand comm = new SqlCommand(query);
+            string qry = "SELECT amount from claimants where anum = '" + s_anum + "';";
+            SqlDataReader reader = db.readDatathroughReader(qry);
+            reader.Read();
+            int result = reader.GetInt32(0);
+            final_amt = result - s_amt;
+            SqlCommand com2 = new SqlCommand("UPDATE members set insurance_amt = insurance_amt + " + final_amt + " where anum = '" + s_anum + "';");
+            reader.Close();
             comm.Parameters.AddWithValue("@name", s_name);
             comm.Parameters.AddWithValue("@age", s_age);
             comm.Parameters.AddWithValue("@add", s_add);
@@ -196,6 +206,7 @@ namespace McsArogya
             try
             {
                 db.executeQuery(comm);
+                db.executeQuery(com2);
                 MessageBox.Show("Updation Successfull", "Mcs-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
                 this.Hide();
