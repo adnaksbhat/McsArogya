@@ -90,6 +90,12 @@
     <Compile Include="claimcell.Designer.cs">
       <DependentUpon>claimcell.cs</DependentUpon>
     </Compile>
+    <Compile Include="cpass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cpass.Designer.cs">
+      <DependentUpon>cpass.cs</DependentUpon>
+    </Compile>
     <Compile Include="DbAccess.cs" />
     <Compile Include="disCell.cs">
       <SubType>Form</SubType>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="claimcell.resx">
       <DependentUpon>claimcell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cpass.resx">
+      <DependentUpon>cpass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="disCell.resx">
       <DependentUpon>disCell.cs</DependentUpon>

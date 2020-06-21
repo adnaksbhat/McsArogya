@@ -61,5 +61,11 @@ namespace McsArogya
             minsure ms = new minsure();
             ms.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            cpass cp = new cpass();
+            cp.ShowDialog();
+        }
     }
 }
