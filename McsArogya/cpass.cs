@@ -17,6 +17,12 @@ namespace McsArogya
             InitializeComponent();
         }
 
+        private void clearAll()
+        {
+            curpass.Text = "";
+            npass.Text = "";
+            confpass.Text = "";
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             string curp, newp, confp;
@@ -29,7 +35,8 @@ namespace McsArogya
             }
             else if( newp != confp )
             {
-                MessageBox.Show("New passwords dont match", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Passwords dont match", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clearAll();
             }
             else
             {
@@ -42,18 +49,21 @@ namespace McsArogya
                 if(pass != curp)
                 {
                     MessageBox.Show("Incorrect Password", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clearAll();
                 }
                 else
                 {
                     try
                     {
-                        SqlCommand com = new SqlCommand("Update users set password = '" + npass + "' where username = 'user';");
+                        SqlCommand com = new SqlCommand("Update users set password = '" + npass.Text.ToString() + "' where username = 'user';");
                         db.executeQuery(com);
                         MessageBox.Show("Password changed successfully", "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     catch(Exception ex)
                     {
                         MessageBox.Show("SQL Exception occured\n"+ex.ToString(), "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        clearAll();
                     }
                 }
             }

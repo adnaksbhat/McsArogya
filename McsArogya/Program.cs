@@ -15,7 +15,7 @@ namespace McsArogya
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new management());
+            Application.Run(new login());
         }
     }
 }

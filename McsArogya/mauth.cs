@@ -33,7 +33,6 @@ namespace McsArogya
             {
                 this.Hide();
                 management m = new management();
-                m.TopMost = true;
                 m.Show();
             }
             else
