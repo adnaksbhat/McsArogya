@@ -58,7 +58,8 @@ namespace McsArogya
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            minsure ms = new minsure();
+            ms.ShowDialog();
         }
     }
 }
