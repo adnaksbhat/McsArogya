@@ -34,17 +34,17 @@ namespace McsArogya
         private void search()
         {
             string query = "";
-            if (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name"))
+            if ((sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name")) || (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("")) || (sbi.Text.Equals("") && sbn.Text.Equals("Search By Name")))
             {
-                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants";
+                query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name,amount as Claim_Amount FROM claimants";
             }
-            if (!sbn.Text.Equals("Search By Name"))
+            else if (sbi.Text.Equals("Search By Account Number"))
             {
-                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants WHERE name LIKE '" + sbn.Text + "%';";
+                query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name,amount as Claim_Amount FROM claimants WHERE name LIKE '%" + sbn.Text + "%';";
             }
-            else if (!sbi.Text.Equals("Search By Account Number"))
+            else if (sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT anum as Application_Number,name as Name,age as Age,address as Address,a_card as Aadhar_Card,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name FROM claimants WHERE anum LIKE '" + sbi.Text + "%';";
+                query = " SELECT anum as Application_Number,name as Name,age as Age,gender as Gender,aadhar as Aadhar_Card, address as Address,a_card as Arogya_Card_Number,contact as Contact,d_desc as Disease_Descsription,hosp_name as Hospital_name,amount as Claim_Amount FROM claimants WHERE anum LIKE '%" + sbi.Text + "%';";
             }
 
             if (!query.Equals(""))
@@ -52,8 +52,6 @@ namespace McsArogya
                 dt.Clear();
                 DbAccess db = new DbAccess();
                 db.readDatathroughAdapter(query, dt);
-                DataGridViewColumn dc = dataGrid.Columns[3];
-                dc.Width = 185;
             }
         }
 
@@ -205,18 +203,12 @@ namespace McsArogya
 
         private void sbn_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Return)
-            {
                 search();
-            }
         }
 
         private void sbi_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Return)
-            {
                 search();
-            }
         }
 
     }

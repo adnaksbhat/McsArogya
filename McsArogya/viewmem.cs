@@ -61,6 +61,11 @@ namespace McsArogya
             sbi.ReadOnly = false;
         }
 
+        private void sbi_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            search();
+        }
+
         private void sbi_Enter(object sender, EventArgs e)
         {
             sbi.Text = "";
@@ -152,28 +157,21 @@ namespace McsArogya
             search();
         }
 
-        private void sbi_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
 
         private void search()
         {
             string query = "";
-            if (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name"))
+            if ((sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("Search By Name")) || (sbi.Text.Equals("Search By Account Number") && sbn.Text.Equals("")) || (sbi.Text.Equals("") && sbn.Text.Equals("Search By Name")) )
             {
-                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members";
+                query = "SELECT anum as Application_Number,ar_card as Arogya_Card_Number,name as Name,gender as Gender,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation,paid as Amount_Paid, insurance_amt as Insure_Amount FROM members";
             }
-            if (!sbn.Text.Equals("Search By Name"))
+            else if (sbi.Text.Equals("Search By Account Number"))
             {
-                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members WHERE name LIKE '" + sbn.Text + "%';";
+                query = "SELECT anum as Application_Number,ar_card as Arogya_Card_Number,name as Name,gender as Gender,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation,paid as Amount_Paid, insurance_amt as Insure_Amount FROM members WHERE name LIKE '%" + sbn.Text + "%';";
             }
-            else if (!sbi.Text.Equals("Search By Account Number"))
+            else if (sbn.Text.Equals("Search By Name"))
             {
-                query = "SELECT anum as Application_Number,name as Name,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation FROM members WHERE anum LIKE '" + sbi.Text + "%';";
+                query = "SELECT anum as Application_Number,ar_card as Arogya_Card_Number,name as Name,gender as Gender,address as Address,contact as Contact,age as Age,aadhar as Aadhar,rc_type as Ration_Card,mc_Status as Medical_Certificate,blood_group as Blood_Group,occupation as Occupation,paid as Amount_Paid, insurance_amt as Insure_Amount FROM members WHERE anum LIKE '%" + sbi.Text + "%';";
             }
 
             if (!query.Equals(""))
@@ -181,17 +179,12 @@ namespace McsArogya
                 dt.Clear();
                 DbAccess db = new DbAccess();
                 db.readDatathroughAdapter(query, dt);
-                DataGridViewColumn dc = dataGrid.Columns[3];
-                dc.Width = 185;
             }
         }
 
         private void sbn_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Return)
-            {
                 search();
-            }
         }
 
         private void sbi_KeyDown(object sender, KeyEventArgs e)

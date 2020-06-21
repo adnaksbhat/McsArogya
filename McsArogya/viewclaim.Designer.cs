@@ -29,29 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewclaim));
-            this.sbi = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.sbn = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.sbi = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // sbi
-            // 
-            this.sbi.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.sbi.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.sbi.Location = new System.Drawing.Point(307, 61);
-            this.sbi.Name = "sbi";
-            this.sbi.Size = new System.Drawing.Size(396, 22);
-            this.sbi.TabIndex = 30;
-            this.sbi.Text = "Search By Account Number";
-            this.sbi.Enter += new System.EventHandler(this.sbi_Enter);
-            this.sbi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sbi_KeyDown);
-            this.sbi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sbi_KeyPress);
-            this.sbi.Leave += new System.EventHandler(this.sbi_Leave);
             // 
             // button1
             // 
@@ -133,15 +119,28 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // sbi
+            // 
+            this.sbi.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.sbi.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.sbi.Location = new System.Drawing.Point(307, 51);
+            this.sbi.Name = "sbi";
+            this.sbi.Size = new System.Drawing.Size(396, 22);
+            this.sbi.TabIndex = 33;
+            this.sbi.Text = "Search By Account Number";
+            this.sbi.Enter += new System.EventHandler(this.sbi_Enter);
+            this.sbi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sbi_KeyDown);
+            this.sbi.Leave += new System.EventHandler(this.sbi_Leave);
+            // 
             // viewclaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.sbi);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.sbi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.sbn);
             this.Controls.Add(this.button2);
@@ -160,13 +159,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox sbi;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox sbn;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox sbi;
     }
 }
