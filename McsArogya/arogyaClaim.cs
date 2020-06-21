@@ -87,6 +87,15 @@ namespace McsArogya
             com.Parameters.AddWithValue("@gdr", gdr);
             com.Parameters.AddWithValue("@aadh", s_aadhar);
             com.Parameters.AddWithValue("@amt", s_amt);
+            SqlDataReader reader = db.readDatathroughReader("Select insurance_amt from members where anum = '" + s_num + "';");
+            reader.Read();
+            int i_amt = reader.GetInt32(0);
+            reader.Close();
+            if(i_amt < s_amt)
+            {
+                MessageBox.Show("Insufficient funds available for customer "+s_num, "MCS-Arogya", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             SqlCommand com2 = new SqlCommand("UPDATE members set insurance_amt = insurance_amt - "+s_amt+" where anum = '"+s_num+"';");
             try
             {
